@@ -1,0 +1,29 @@
+vhdl xil_defaultlib  \
+"../../../bd/kd240_ecat_bd/ip/kd240_ecat_bd_axi_quad_spi_0_0/sim/kd240_ecat_bd_axi_quad_spi_0_0.vhd" \
+"../../../bd/kd240_ecat_bd/ip/kd240_ecat_bd_axi_smc_0/bd_0/ip/ip_1/sim/bd_6104_psr_aclk_0.vhd" \
+"../../../bd/kd240_ecat_bd/ip/kd240_ecat_bd_rst_ps8_0_99M_0/sim/kd240_ecat_bd_rst_ps8_0_99M_0.vhd" \
+
+vhdl xbip_utils_v3_0_15  \
+"../../../../kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/hdl/xbip_utils_v3_0_vh_rfs.vhd" \
+
+vhdl axi_utils_v2_0_11  \
+"../../../../kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/hdl/axi_utils_v2_0_vh_rfs.vhd" \
+
+vhdl xbip_pipe_v3_0_11  \
+"../../../../kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/hdl/xbip_pipe_v3_0_vh_rfs.vhd" \
+
+vhdl xbip_dsp48_wrapper_v3_0_7  \
+"../../../../kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/hdl/xbip_dsp48_wrapper_v3_0_vh_rfs.vhd" \
+
+vhdl mult_gen_v12_0_24  \
+"../../../../kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/hdl/mult_gen_v12_0_vh_rfs.vhd" \
+
+vhdl floating_point_v7_1_21  \
+"../../../../kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/hdl/floating_point_v7_1_vh_rfs.vhd" \
+
+vhdl xil_defaultlib  \
+"../../../bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/sim/fp_add.vhd" \
+"../../../bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/sim/fp_mult.vhd" \
+
+# Do not sort compile order
+nosort

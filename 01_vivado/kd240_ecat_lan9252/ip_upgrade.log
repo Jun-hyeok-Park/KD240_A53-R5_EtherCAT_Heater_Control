@@ -1,0 +1,216 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Tue May 19 10:19:00 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0) from (Rev. 10) to (Rev. 11)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Tue May 19 08:59:06 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+CAUTION (success, with warnings) in the upgrade of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0) from (Rev. 9) to (Rev. 10)
+
+After upgrade, an IP may have parameter and port differences compared to the original customization. Please review the parameters within the IP customization GUI to ensure proper functionality. Also, please review the updated IP instantiation template to ensure proper connectivity, and update your design if required.
+
+2. Connection Warnings
+----------------------
+
+Detected external port differences while upgrading 'kd240_ecat_bd_heater_axi_0_0'. These changes may impact your design.
+
+
+-Upgraded port order differs after port 's00_axi_aclk'
+
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Mon May 18 10:10:56 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0) from (Rev. 8) to (Rev. 9)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri May 15 18:00:19 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0 (Rev. 8)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri May 15 17:57:36 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0) from (Rev. 7) to (Rev. 8)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri May 15 17:39:26 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0) from (Rev. 6) to (Rev. 7)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri May 15 16:51:31 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the upgrade of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0) from (Rev. 2) to (Rev. 6)
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri May 15 16:12:16 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0 (Rev. 2)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri May 15 16:02:44 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0 (Rev. 2)) to current project options.
+
+
+
+
+
+
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri May 15 15:48:00 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xck24-ubva530-2LV-c
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'kd240_ecat_bd_heater_axi_0_0'
+
+1. Summary
+----------
+
+SUCCESS in the update of kd240_ecat_bd_heater_axi_0_0 (xilinx.com:user:heater_axi:1.0 (Rev. 2)) to current project options.
+

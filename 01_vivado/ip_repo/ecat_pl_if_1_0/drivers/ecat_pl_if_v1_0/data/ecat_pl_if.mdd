@@ -1,0 +1,10 @@
+
+
+OPTION psf_version = 2.1;
+
+BEGIN DRIVER ecat_pl_if
+	OPTION supported_peripherals = (ecat_pl_if);
+	OPTION copyfiles = all;
+	OPTION VERSION = 1.0;
+	OPTION NAME = ecat_pl_if;
+END DRIVER

@@ -1,0 +1,17 @@
+{
+  "name": "r5_heater_axi_test",
+  "type": "HOST",
+  "platform": "kd240_ecat_platform",
+  "domain": "standalone_psu_cortexr5_0",
+  "cpuInstance": "psu_cortexr5_0",
+  "cpuType": "cortex-r5",
+  "os": "standalone",
+  "configuration": {
+    "componentType": "HOST",
+    "hostToolchainConfigurations": []
+  },
+  "domainRealName": "standalone_psu_cortexr5_0",
+  "useSysrootToolchain": false,
+  "applicationFlow": "EMBEDDED",
+  "templateFlow": "VITIS"
+}

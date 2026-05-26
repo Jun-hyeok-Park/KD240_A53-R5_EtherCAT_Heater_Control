@@ -1,0 +1,17 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version      : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date              : Tue May 19 13:42:41 2026
+| Host              : pjh running 64-bit major release  (build 9200)
+| Command           : report_bus_skew -warn_on_violation -file kd240_ecat_bd_wrapper_bus_skew_routed.rpt -pb kd240_ecat_bd_wrapper_bus_skew_routed.pb -rpx kd240_ecat_bd_wrapper_bus_skew_routed.rpx
+| Design            : kd240_ecat_bd_wrapper
+| Device            : xck24-ubva530
+| Speed File        : -2LV  PRODUCTION 1.30 05-15-2022
+| Design State      : Routed
+| Temperature Grade : C
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+No bus skew constraints
+

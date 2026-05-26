@@ -1,0 +1,46 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.810083",
+   "Default View_TopLeft":"-702,-833",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0
+#  -string -flagsOSRD
+preplace port spi_rtl -pg 1 -lvl 5 -x 1490 -y -280 -defaultsOSRD
+preplace port port-id_rst_out_0 -pg 1 -lvl 5 -x 1490 -y -600 -defaultsOSRD
+preplace port port-id_irq_in_0 -pg 1 -lvl 0 -x -580 -y -600 -defaultsOSRD
+preplace port port-id_sync0_in_0 -pg 1 -lvl 0 -x -580 -y -580 -defaultsOSRD
+preplace port port-id_sync1_in_0 -pg 1 -lvl 0 -x -580 -y -560 -defaultsOSRD
+preplace inst zynq_ultra_ps_e_0 -pg 1 -lvl 1 -x -190 -y -270 -defaultsOSRD
+preplace inst axi_quad_spi_0 -pg 1 -lvl 3 -x 970 -y -270 -defaultsOSRD
+preplace inst axi_smc -pg 1 -lvl 2 -x 400 -y -260 -defaultsOSRD -resize 269 182
+preplace inst rst_ps8_0_99M -pg 1 -lvl 1 -x -190 -y -40 -defaultsOSRD
+preplace inst ecat_pl_if_0 -pg 1 -lvl 3 -x 970 -y -570 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 4 -x 1300 -y -510 -defaultsOSRD
+preplace inst heater_axi_0 -pg 1 -lvl 3 -x 970 -y -30 -defaultsOSRD -resize 182 138
+preplace netloc ecat_pl_if_0_rst_out 1 3 2 N -600 N
+preplace netloc rst_ps8_0_99M_peripheral_aresetn 1 1 2 240 0 850
+preplace netloc zynq_ultra_ps_e_0_pl_resetn0 1 0 2 -490 -370 110
+preplace netloc zynq_ultra_ps_e_0_pl_clk0 1 0 3 -500 -380 120 -370 840
+preplace netloc irq_in_0_1 1 0 3 NJ -600 NJ -600 N
+preplace netloc sync0_in_0_1 1 0 3 NJ -580 NJ -580 N
+preplace netloc sync1_in_0_1 1 0 3 NJ -560 NJ -560 N
+preplace netloc ecat_pl_if_0_irq_int 1 3 1 1110 -580n
+preplace netloc ecat_pl_if_0_sync0_int 1 3 1 1100 -560n
+preplace netloc ecat_pl_if_0_sync1_int 1 3 1 1090 -540n
+preplace netloc xlconcat_0_dout 1 0 5 -510 -390 N -390 N -390 N -390 1400
+preplace netloc axi_quad_spi_0_SPI_0 1 3 2 N -280 N
+preplace netloc axi_smc_M00_AXI 1 2 1 N -300
+preplace netloc axi_smc_M01_AXI 1 2 1 560 -620n
+preplace netloc axi_smc_M02_AXI 1 2 1 560 -220n
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_FPD 1 1 1 N -310
+preplace netloc zynq_ultra_ps_e_0_M_AXI_HPM0_LPD 1 1 1 130 -290n
+levelinfo -pg 1 -580 -190 400 970 1300 1490
+pagesize -pg 1 -db -bbox -sgen -710 -750 2220 640
+"
+}
+{
+   "da_axi4_cnt":"11",
+   "da_board_cnt":"1",
+   "da_clkrst_cnt":"3",
+   "da_zynq_ultra_ps_e_cnt":"1"
+}

@@ -1,0 +1,4 @@
+C:/Users/user/Desktop/KD240/02_vitis/kd240_ecat_platform/zynqmp_fsbl/build/CMakeFiles/fsbl.elf.dir
+C:/Users/user/Desktop/KD240/02_vitis/kd240_ecat_platform/zynqmp_fsbl/build/CMakeFiles/print_build_info.dir
+C:/Users/user/Desktop/KD240/02_vitis/kd240_ecat_platform/zynqmp_fsbl/build/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/KD240/02_vitis/kd240_ecat_platform/zynqmp_fsbl/build/CMakeFiles/rebuild_cache.dir

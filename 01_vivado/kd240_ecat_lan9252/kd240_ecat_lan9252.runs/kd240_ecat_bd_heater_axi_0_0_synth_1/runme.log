@@ -1,0 +1,1114 @@
+
+*** Running vivado
+    with args -log kd240_ecat_bd_heater_axi_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source kd240_ecat_bd_heater_axi_0_0.tcl
+
+
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Tue May 19 10:19:29 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source kd240_ecat_bd_heater_axi_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 545.258 ; gain = 221.438
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/user/Desktop/KD240/01_vivado/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2025.2/Vivado/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.cache/ip 
+Command: synth_design -top kd240_ecat_bd_heater_axi_0_0 -part xck24-ubva530-2LV-c -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck24'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck24'
+INFO: [Device 21-403] Loading part xck24-ubva530-2LV-c
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 744
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1766.480 ; gain = 203.848
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'kd240_ecat_bd_heater_axi_0_0' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/synth/kd240_ecat_bd_heater_axi_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'heater_axi' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi.v:4]
+INFO: [Synth 8-6157] synthesizing module 'heater_axi_slave_lite_v1_0_S00_AXI' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:164]
+INFO: [Synth 8-226] default block is never used [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:250]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:399]
+INFO: [Synth 8-6157] synthesizing module 'heater_core' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_core.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'timer_gen' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/timer_gen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'timer_gen' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/timer_gen.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'system_fsm' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:3]
+INFO: [Synth 8-226] default block is never used [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:52]
+INFO: [Synth 8-226] default block is never used [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:75]
+INFO: [Synth 8-6155] done synthesizing module 'system_fsm' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pi_controller' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:3]
+INFO: [Synth 8-638] synthesizing module 'fp_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/synth/fp_add.vhd:74]
+	Parameter C_XDEVICEFAMILY bound to: zynquplus - type: string 
+	Parameter C_PART bound to: xck24-ubva530-2LV-c - type: string 
+	Parameter C_HAS_ADD bound to: 1 - type: integer 
+	Parameter C_HAS_SUBTRACT bound to: 0 - type: integer 
+	Parameter C_HAS_MULTIPLY bound to: 0 - type: integer 
+	Parameter C_HAS_DIVIDE bound to: 0 - type: integer 
+	Parameter C_HAS_SQRT bound to: 0 - type: integer 
+	Parameter C_HAS_COMPARE bound to: 0 - type: integer 
+	Parameter C_HAS_FIX_TO_FLT bound to: 0 - type: integer 
+	Parameter C_HAS_FLT_TO_FIX bound to: 0 - type: integer 
+	Parameter C_HAS_FLT_TO_FLT bound to: 0 - type: integer 
+	Parameter C_HAS_RECIP bound to: 0 - type: integer 
+	Parameter C_HAS_RECIP_SQRT bound to: 0 - type: integer 
+	Parameter C_HAS_ABSOLUTE bound to: 0 - type: integer 
+	Parameter C_HAS_LOGARITHM bound to: 0 - type: integer 
+	Parameter C_HAS_EXPONENTIAL bound to: 0 - type: integer 
+	Parameter C_HAS_FMA bound to: 0 - type: integer 
+	Parameter C_HAS_FMS bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ADD bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_SUB bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ACCUMULATOR_A bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ACCUMULATOR_S bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_A bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_S bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_PRIMITIVE_A bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_PRIMITIVE_S bound to: 0 - type: integer 
+	Parameter C_A_WIDTH bound to: 32 - type: integer 
+	Parameter C_A_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_B_WIDTH bound to: 32 - type: integer 
+	Parameter C_B_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_C_WIDTH bound to: 32 - type: integer 
+	Parameter C_C_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_RESULT_WIDTH bound to: 32 - type: integer 
+	Parameter C_RESULT_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_COMPARE_OPERATION bound to: 8 - type: integer 
+	Parameter C_LATENCY bound to: 12 - type: integer 
+	Parameter C_OPTIMIZATION bound to: 1 - type: integer 
+	Parameter C_MULT_USAGE bound to: 2 - type: integer 
+	Parameter C_BRAM_USAGE bound to: 0 - type: integer 
+	Parameter C_RATE bound to: 1 - type: integer 
+	Parameter C_ACCUM_INPUT_MSB bound to: 32 - type: integer 
+	Parameter C_ACCUM_MSB bound to: 32 - type: integer 
+	Parameter C_ACCUM_LSB bound to: -31 - type: integer 
+	Parameter C_HAS_UNDERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_INVALID_OP bound to: 0 - type: integer 
+	Parameter C_HAS_DIVIDE_BY_ZERO bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUM_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUM_INPUT_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_HAS_ARESETN bound to: 0 - type: integer 
+	Parameter C_THROTTLE_SCHEME bound to: 1 - type: integer 
+	Parameter C_HAS_A_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_A_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_B bound to: 1 - type: integer 
+	Parameter C_HAS_B_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_B_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_C bound to: 0 - type: integer 
+	Parameter C_HAS_C_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_C_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_RESULT_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_RESULT_TLAST bound to: 0 - type: integer 
+	Parameter C_TLAST_RESOLUTION bound to: 0 - type: integer 
+	Parameter C_A_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_A_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_B_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_B_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_C_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_C_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_OPERATION_TDATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_OPERATION_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_RESULT_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_RESULT_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_FIXED_DATA_UNSIGNED bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'floating_point_v7_1_21' declared at 'c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/hdl/floating_point_v7_1_vh_rfs.vhd:93266' bound to instance 'U0' of component 'floating_point_v7_1_21' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/synth/fp_add.vhd:219]
+INFO: [Synth 8-256] done synthesizing module 'fp_add' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/synth/fp_add.vhd:74]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'u_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:64]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'u_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:64]
+WARNING: [Synth 8-7023] instance 'u_add' of module 'fp_add' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:64]
+INFO: [Synth 8-638] synthesizing module 'fp_mult' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/synth/fp_mult.vhd:74]
+	Parameter C_XDEVICEFAMILY bound to: zynquplus - type: string 
+	Parameter C_PART bound to: xck24-ubva530-2LV-c - type: string 
+	Parameter C_HAS_ADD bound to: 0 - type: integer 
+	Parameter C_HAS_SUBTRACT bound to: 0 - type: integer 
+	Parameter C_HAS_MULTIPLY bound to: 1 - type: integer 
+	Parameter C_HAS_DIVIDE bound to: 0 - type: integer 
+	Parameter C_HAS_SQRT bound to: 0 - type: integer 
+	Parameter C_HAS_COMPARE bound to: 0 - type: integer 
+	Parameter C_HAS_FIX_TO_FLT bound to: 0 - type: integer 
+	Parameter C_HAS_FLT_TO_FIX bound to: 0 - type: integer 
+	Parameter C_HAS_FLT_TO_FLT bound to: 0 - type: integer 
+	Parameter C_HAS_RECIP bound to: 0 - type: integer 
+	Parameter C_HAS_RECIP_SQRT bound to: 0 - type: integer 
+	Parameter C_HAS_ABSOLUTE bound to: 0 - type: integer 
+	Parameter C_HAS_LOGARITHM bound to: 0 - type: integer 
+	Parameter C_HAS_EXPONENTIAL bound to: 0 - type: integer 
+	Parameter C_HAS_FMA bound to: 0 - type: integer 
+	Parameter C_HAS_FMS bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ADD bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_SUB bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ACCUMULATOR_A bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ACCUMULATOR_S bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_A bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_S bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_PRIMITIVE_A bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_PRIMITIVE_S bound to: 0 - type: integer 
+	Parameter C_A_WIDTH bound to: 32 - type: integer 
+	Parameter C_A_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_B_WIDTH bound to: 32 - type: integer 
+	Parameter C_B_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_C_WIDTH bound to: 32 - type: integer 
+	Parameter C_C_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_RESULT_WIDTH bound to: 32 - type: integer 
+	Parameter C_RESULT_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_COMPARE_OPERATION bound to: 8 - type: integer 
+	Parameter C_LATENCY bound to: 9 - type: integer 
+	Parameter C_OPTIMIZATION bound to: 1 - type: integer 
+	Parameter C_MULT_USAGE bound to: 2 - type: integer 
+	Parameter C_BRAM_USAGE bound to: 0 - type: integer 
+	Parameter C_RATE bound to: 1 - type: integer 
+	Parameter C_ACCUM_INPUT_MSB bound to: 32 - type: integer 
+	Parameter C_ACCUM_MSB bound to: 32 - type: integer 
+	Parameter C_ACCUM_LSB bound to: -31 - type: integer 
+	Parameter C_HAS_UNDERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_INVALID_OP bound to: 0 - type: integer 
+	Parameter C_HAS_DIVIDE_BY_ZERO bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUM_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUM_INPUT_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_HAS_ARESETN bound to: 0 - type: integer 
+	Parameter C_THROTTLE_SCHEME bound to: 1 - type: integer 
+	Parameter C_HAS_A_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_A_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_B bound to: 1 - type: integer 
+	Parameter C_HAS_B_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_B_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_C bound to: 0 - type: integer 
+	Parameter C_HAS_C_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_C_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_RESULT_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_RESULT_TLAST bound to: 0 - type: integer 
+	Parameter C_TLAST_RESOLUTION bound to: 0 - type: integer 
+	Parameter C_A_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_A_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_B_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_B_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_C_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_C_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_OPERATION_TDATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_OPERATION_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_RESULT_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_RESULT_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_FIXED_DATA_UNSIGNED bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'floating_point_v7_1_21' declared at 'c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/hdl/floating_point_v7_1_vh_rfs.vhd:93266' bound to instance 'U0' of component 'floating_point_v7_1_21' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/synth/fp_mult.vhd:219]
+INFO: [Synth 8-256] done synthesizing module 'fp_mult' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/synth/fp_mult.vhd:74]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_mult' is unconnected for instance 'u_mult1' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:78]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_mult' is unconnected for instance 'u_mult1' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:78]
+WARNING: [Synth 8-7023] instance 'u_mult1' of module 'fp_mult' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:78]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_mult' is unconnected for instance 'u_mult2' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:92]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_mult' is unconnected for instance 'u_mult2' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:92]
+WARNING: [Synth 8-7023] instance 'u_mult2' of module 'fp_mult' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:92]
+INFO: [Synth 8-6155] done synthesizing module 'pi_controller' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'virtual_plant' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:3]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_mult' is unconnected for instance 'u_mult1' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:88]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_mult' is unconnected for instance 'u_mult1' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:88]
+WARNING: [Synth 8-7023] instance 'u_mult1' of module 'fp_mult' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:88]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_mult' is unconnected for instance 'u_mult2' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:102]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_mult' is unconnected for instance 'u_mult2' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:102]
+WARNING: [Synth 8-7023] instance 'u_mult2' of module 'fp_mult' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:102]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'u_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:116]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'u_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:116]
+WARNING: [Synth 8-7023] instance 'u_add' of module 'fp_add' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:116]
+INFO: [Synth 8-6155] done synthesizing module 'virtual_plant' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'sensor_delay_float' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_delay_float.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'sensor_delay_float' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_delay_float.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'sensor_noise_float' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:3]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'u_add_noise' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:80]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'u_add_noise' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:80]
+WARNING: [Synth 8-7023] instance 'u_add_noise' of module 'fp_add' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:80]
+INFO: [Synth 8-226] default block is never used [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:45]
+INFO: [Synth 8-6155] done synthesizing module 'sensor_noise_float' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pwm_gen_float' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pwm_gen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'pwm_gen_float' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pwm_gen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'heater_core' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_core.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'heater_axi_slave_lite_v1_0_S00_AXI' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'heater_axi' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'kd240_ecat_bd_heater_axi_0_0' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/synth/kd240_ecat_bd_heater_axi_0_0.v:53]
+WARNING: [Synth 8-3936] Found unconnected internal register 'abs_err_reg' and it is trimmed from '32' to '31' bits. [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:41]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:234]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg5_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:235]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg6_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:236]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg7_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:237]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg9_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:239]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg10_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:240]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg11_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:241]
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized11 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized11 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized11 is either unconnected or has no load
+INFO: [Synth 8-7129] Port DEC_OP_STATE[11] in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port DEC_OP_STATE[10] in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port DEC_OP_STATE[9] in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port DEC_OP_STATE[8] in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port DIVIDE_BY_ZERO_IN in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized55 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized55 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized55 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port B[8] in module carry_chain__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized43 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized43 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized43 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized47 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized47 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized47 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized65 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized65 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized65 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized41 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized41 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized41 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized59 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized59 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized59 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized61 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized61 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized61 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized57 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized57 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized57 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized53 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized53 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized53 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized51 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized51 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized51 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized49 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized49 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized49 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[14] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[13] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[12] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[11] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[10] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[9] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[8] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[7] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[6] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[5] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[4] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[3] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[2] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[1] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[0] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[2] in module carry_chain__parameterized1 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[1] in module carry_chain__parameterized1 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[0] in module carry_chain__parameterized1 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[0] in module compare_eq_im__parameterized0 is either unconnected or has no load
+INFO: [Synth 8-7129] Port A[31] in module special_detect is either unconnected or has no load
+INFO: [Synth 8-7129] Port ZERO_ALIGN in module flt_add_exp_sp is either unconnected or has no load
+INFO: [Synth 8-7129] Port ROUND_EXP_INC in module flt_add_exp_sp is either unconnected or has no load
+INFO: [Synth 8-7129] Port ADD_MANT_MSBS[1] in module flt_add_exp_sp is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2038.289 ; gain = 475.656
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2038.289 ; gain = 475.656
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 2038.289 ; gain = 475.656
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.138 . Memory (MB): peak = 2038.289 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 676 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.runs/kd240_ecat_bd_heater_axi_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.runs/kd240_ecat_bd_heater_axi_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2142.516 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 70 instances were transformed.
+  DSP48E1 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 6 instances
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 8 instances
+  FDE => FDRE: 56 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.278 . Memory (MB): peak = 2142.516 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2142.516 ; gain = 579.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck24-ubva530-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2142.516 ; gain = 579.883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 2142.516 ; gain = 579.883
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'system_fsm'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'virtual_plant'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'sensor_noise_float'
+INFO: [Synth 8-802] inferred FSM for state register 'state_write_reg' in module 'heater_axi_slave_lite_v1_0_S00_AXI'
+INFO: [Synth 8-802] inferred FSM for state register 'state_read_reg' in module 'heater_axi_slave_lite_v1_0_S00_AXI'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_IDLE |                               00 |                               00
+                  ST_RUN |                               01 |                               01
+               ST_STABLE |                               10 |                               10
+                ST_FAULT |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'system_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0000
+              MULT_START |                              001 |                             0001
+               MULT_WAIT |                              010 |                             0010
+              ADD1_START |                              011 |                             0011
+               ADD1_WAIT |                              100 |                             0100
+              ADD2_START |                              101 |                             0101
+               ADD2_WAIT |                              110 |                             0110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'virtual_plant'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                               00 |                               00
+             S_ADD_START |                               01 |                               01
+              S_ADD_WAIT |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'sensor_noise_float'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    Idle |                               00 |                               00
+                   Waddr |                               01 |                               10
+                   Wdata |                               10 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_write_reg' using encoding 'sequential' in module 'heater_axi_slave_lite_v1_0_S00_AXI'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    Idle |                               00 |                               00
+                   Raddr |                               01 |                               10
+                   Rdata |                               10 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_read_reg' using encoding 'sequential' in module 'heater_axi_slave_lite_v1_0_S00_AXI'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 2142.516 ; gain = 579.883
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'fp_add:/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'fp_add:/U0/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'fp_add:/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'fp_add:/U0/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'fp_mult:/U0/i_synth/MULT.OP/i_non_prim.R_AND_R/LOGIC.R_AND_R/EXTRA_LSB_BIT_DEL' (delay__parameterized0) to 'fp_mult:/U0/i_synth/MULT.OP/i_non_prim.R_AND_R/LOGIC.R_AND_R/EXTRA_LSB_RND1_DEL'
+INFO: [Synth 8-223] decloning instance 'fp_mult:/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'fp_mult:/U0/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'fp_mult:/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'fp_mult:/U0/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 360 (col length:72)
+BRAMs: 432 (col length: RAMB18 72 RAMB36 36)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+
+*** Running vivado
+    with args -log kd240_ecat_bd_heater_axi_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source kd240_ecat_bd_heater_axi_0_0.tcl
+
+
+
+****** Vivado v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Tue May 19 10:20:28 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source kd240_ecat_bd_heater_axi_0_0.tcl -notrace
+create_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 545.051 ; gain = 220.730
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/user/Desktop/KD240/01_vivado/ip_repo'.
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2025.2/Vivado/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.cache/ip 
+Command: synth_design -top kd240_ecat_bd_heater_axi_0_0 -part xck24-ubva530-2LV-c -incremental_mode off -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xck24'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xck24'
+INFO: [Device 21-403] Loading part xck24-ubva530-2LV-c
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 8312
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1768.082 ; gain = 204.121
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'kd240_ecat_bd_heater_axi_0_0' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/synth/kd240_ecat_bd_heater_axi_0_0.v:53]
+INFO: [Synth 8-6157] synthesizing module 'heater_axi' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi.v:4]
+INFO: [Synth 8-6157] synthesizing module 'heater_axi_slave_lite_v1_0_S00_AXI' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:164]
+INFO: [Synth 8-226] default block is never used [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:250]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:399]
+INFO: [Synth 8-6157] synthesizing module 'heater_core' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_core.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'timer_gen' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/timer_gen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'timer_gen' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/timer_gen.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'system_fsm' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:3]
+INFO: [Synth 8-226] default block is never used [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:52]
+INFO: [Synth 8-226] default block is never used [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:75]
+INFO: [Synth 8-6155] done synthesizing module 'system_fsm' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pi_controller' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:3]
+INFO: [Synth 8-638] synthesizing module 'fp_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/synth/fp_add.vhd:74]
+	Parameter C_XDEVICEFAMILY bound to: zynquplus - type: string 
+	Parameter C_PART bound to: xck24-ubva530-2LV-c - type: string 
+	Parameter C_HAS_ADD bound to: 1 - type: integer 
+	Parameter C_HAS_SUBTRACT bound to: 0 - type: integer 
+	Parameter C_HAS_MULTIPLY bound to: 0 - type: integer 
+	Parameter C_HAS_DIVIDE bound to: 0 - type: integer 
+	Parameter C_HAS_SQRT bound to: 0 - type: integer 
+	Parameter C_HAS_COMPARE bound to: 0 - type: integer 
+	Parameter C_HAS_FIX_TO_FLT bound to: 0 - type: integer 
+	Parameter C_HAS_FLT_TO_FIX bound to: 0 - type: integer 
+	Parameter C_HAS_FLT_TO_FLT bound to: 0 - type: integer 
+	Parameter C_HAS_RECIP bound to: 0 - type: integer 
+	Parameter C_HAS_RECIP_SQRT bound to: 0 - type: integer 
+	Parameter C_HAS_ABSOLUTE bound to: 0 - type: integer 
+	Parameter C_HAS_LOGARITHM bound to: 0 - type: integer 
+	Parameter C_HAS_EXPONENTIAL bound to: 0 - type: integer 
+	Parameter C_HAS_FMA bound to: 0 - type: integer 
+	Parameter C_HAS_FMS bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ADD bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_SUB bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ACCUMULATOR_A bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ACCUMULATOR_S bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_A bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_S bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_PRIMITIVE_A bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_PRIMITIVE_S bound to: 0 - type: integer 
+	Parameter C_A_WIDTH bound to: 32 - type: integer 
+	Parameter C_A_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_B_WIDTH bound to: 32 - type: integer 
+	Parameter C_B_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_C_WIDTH bound to: 32 - type: integer 
+	Parameter C_C_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_RESULT_WIDTH bound to: 32 - type: integer 
+	Parameter C_RESULT_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_COMPARE_OPERATION bound to: 8 - type: integer 
+	Parameter C_LATENCY bound to: 12 - type: integer 
+	Parameter C_OPTIMIZATION bound to: 1 - type: integer 
+	Parameter C_MULT_USAGE bound to: 2 - type: integer 
+	Parameter C_BRAM_USAGE bound to: 0 - type: integer 
+	Parameter C_RATE bound to: 1 - type: integer 
+	Parameter C_ACCUM_INPUT_MSB bound to: 32 - type: integer 
+	Parameter C_ACCUM_MSB bound to: 32 - type: integer 
+	Parameter C_ACCUM_LSB bound to: -31 - type: integer 
+	Parameter C_HAS_UNDERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_INVALID_OP bound to: 0 - type: integer 
+	Parameter C_HAS_DIVIDE_BY_ZERO bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUM_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUM_INPUT_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_HAS_ARESETN bound to: 0 - type: integer 
+	Parameter C_THROTTLE_SCHEME bound to: 1 - type: integer 
+	Parameter C_HAS_A_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_A_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_B bound to: 1 - type: integer 
+	Parameter C_HAS_B_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_B_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_C bound to: 0 - type: integer 
+	Parameter C_HAS_C_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_C_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_RESULT_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_RESULT_TLAST bound to: 0 - type: integer 
+	Parameter C_TLAST_RESOLUTION bound to: 0 - type: integer 
+	Parameter C_A_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_A_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_B_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_B_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_C_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_C_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_OPERATION_TDATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_OPERATION_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_RESULT_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_RESULT_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_FIXED_DATA_UNSIGNED bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'floating_point_v7_1_21' declared at 'c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/hdl/floating_point_v7_1_vh_rfs.vhd:93266' bound to instance 'U0' of component 'floating_point_v7_1_21' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/synth/fp_add.vhd:219]
+INFO: [Synth 8-256] done synthesizing module 'fp_add' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_add_1/synth/fp_add.vhd:74]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'u_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:64]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'u_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:64]
+WARNING: [Synth 8-7023] instance 'u_add' of module 'fp_add' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:64]
+INFO: [Synth 8-638] synthesizing module 'fp_mult' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/synth/fp_mult.vhd:74]
+	Parameter C_XDEVICEFAMILY bound to: zynquplus - type: string 
+	Parameter C_PART bound to: xck24-ubva530-2LV-c - type: string 
+	Parameter C_HAS_ADD bound to: 0 - type: integer 
+	Parameter C_HAS_SUBTRACT bound to: 0 - type: integer 
+	Parameter C_HAS_MULTIPLY bound to: 1 - type: integer 
+	Parameter C_HAS_DIVIDE bound to: 0 - type: integer 
+	Parameter C_HAS_SQRT bound to: 0 - type: integer 
+	Parameter C_HAS_COMPARE bound to: 0 - type: integer 
+	Parameter C_HAS_FIX_TO_FLT bound to: 0 - type: integer 
+	Parameter C_HAS_FLT_TO_FIX bound to: 0 - type: integer 
+	Parameter C_HAS_FLT_TO_FLT bound to: 0 - type: integer 
+	Parameter C_HAS_RECIP bound to: 0 - type: integer 
+	Parameter C_HAS_RECIP_SQRT bound to: 0 - type: integer 
+	Parameter C_HAS_ABSOLUTE bound to: 0 - type: integer 
+	Parameter C_HAS_LOGARITHM bound to: 0 - type: integer 
+	Parameter C_HAS_EXPONENTIAL bound to: 0 - type: integer 
+	Parameter C_HAS_FMA bound to: 0 - type: integer 
+	Parameter C_HAS_FMS bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ADD bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_SUB bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ACCUMULATOR_A bound to: 0 - type: integer 
+	Parameter C_HAS_UNFUSED_MULTIPLY_ACCUMULATOR_S bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_A bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_S bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_PRIMITIVE_A bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUMULATOR_PRIMITIVE_S bound to: 0 - type: integer 
+	Parameter C_A_WIDTH bound to: 32 - type: integer 
+	Parameter C_A_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_B_WIDTH bound to: 32 - type: integer 
+	Parameter C_B_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_C_WIDTH bound to: 32 - type: integer 
+	Parameter C_C_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_RESULT_WIDTH bound to: 32 - type: integer 
+	Parameter C_RESULT_FRACTION_WIDTH bound to: 24 - type: integer 
+	Parameter C_COMPARE_OPERATION bound to: 8 - type: integer 
+	Parameter C_LATENCY bound to: 9 - type: integer 
+	Parameter C_OPTIMIZATION bound to: 1 - type: integer 
+	Parameter C_MULT_USAGE bound to: 2 - type: integer 
+	Parameter C_BRAM_USAGE bound to: 0 - type: integer 
+	Parameter C_RATE bound to: 1 - type: integer 
+	Parameter C_ACCUM_INPUT_MSB bound to: 32 - type: integer 
+	Parameter C_ACCUM_MSB bound to: 32 - type: integer 
+	Parameter C_ACCUM_LSB bound to: -31 - type: integer 
+	Parameter C_HAS_UNDERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_INVALID_OP bound to: 0 - type: integer 
+	Parameter C_HAS_DIVIDE_BY_ZERO bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUM_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_ACCUM_INPUT_OVERFLOW bound to: 0 - type: integer 
+	Parameter C_HAS_ACLKEN bound to: 0 - type: integer 
+	Parameter C_HAS_ARESETN bound to: 0 - type: integer 
+	Parameter C_THROTTLE_SCHEME bound to: 1 - type: integer 
+	Parameter C_HAS_A_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_A_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_B bound to: 1 - type: integer 
+	Parameter C_HAS_B_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_B_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_C bound to: 0 - type: integer 
+	Parameter C_HAS_C_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_C_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_OPERATION_TLAST bound to: 0 - type: integer 
+	Parameter C_HAS_RESULT_TUSER bound to: 0 - type: integer 
+	Parameter C_HAS_RESULT_TLAST bound to: 0 - type: integer 
+	Parameter C_TLAST_RESOLUTION bound to: 0 - type: integer 
+	Parameter C_A_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_A_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_B_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_B_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_C_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_C_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_OPERATION_TDATA_WIDTH bound to: 8 - type: integer 
+	Parameter C_OPERATION_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_RESULT_TDATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_RESULT_TUSER_WIDTH bound to: 1 - type: integer 
+	Parameter C_FIXED_DATA_UNSIGNED bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'floating_point_v7_1_21' declared at 'c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/hdl/floating_point_v7_1_vh_rfs.vhd:93266' bound to instance 'U0' of component 'floating_point_v7_1_21' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/synth/fp_mult.vhd:219]
+INFO: [Synth 8-256] done synthesizing module 'fp_mult' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/src/fp_mult_1/synth/fp_mult.vhd:74]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_mult' is unconnected for instance 'u_mult1' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:78]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_mult' is unconnected for instance 'u_mult1' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:78]
+WARNING: [Synth 8-7023] instance 'u_mult1' of module 'fp_mult' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:78]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_mult' is unconnected for instance 'u_mult2' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:92]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_mult' is unconnected for instance 'u_mult2' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:92]
+WARNING: [Synth 8-7023] instance 'u_mult2' of module 'fp_mult' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:92]
+INFO: [Synth 8-6155] done synthesizing module 'pi_controller' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pi_controller.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'virtual_plant' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:3]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_mult' is unconnected for instance 'u_mult1' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:88]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_mult' is unconnected for instance 'u_mult1' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:88]
+WARNING: [Synth 8-7023] instance 'u_mult1' of module 'fp_mult' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:88]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_mult' is unconnected for instance 'u_mult2' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:102]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_mult' is unconnected for instance 'u_mult2' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:102]
+WARNING: [Synth 8-7023] instance 'u_mult2' of module 'fp_mult' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:102]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'u_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:116]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'u_add' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:116]
+WARNING: [Synth 8-7023] instance 'u_add' of module 'fp_add' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:116]
+INFO: [Synth 8-6155] done synthesizing module 'virtual_plant' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/virtual_plant.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'sensor_delay_float' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_delay_float.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'sensor_delay_float' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_delay_float.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'sensor_noise_float' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:3]
+WARNING: [Synth 8-7071] port 's_axis_a_tready' of module 'fp_add' is unconnected for instance 'u_add_noise' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:80]
+WARNING: [Synth 8-7071] port 's_axis_b_tready' of module 'fp_add' is unconnected for instance 'u_add_noise' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:80]
+WARNING: [Synth 8-7023] instance 'u_add_noise' of module 'fp_add' has 10 connections declared, but only 8 given [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:80]
+INFO: [Synth 8-226] default block is never used [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:45]
+INFO: [Synth 8-6155] done synthesizing module 'sensor_noise_float' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/sensor_noise_float.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'pwm_gen_float' [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pwm_gen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'pwm_gen_float' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/pwm_gen.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'heater_core' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_core.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'heater_axi_slave_lite_v1_0_S00_AXI' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'heater_axi' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi.v:4]
+INFO: [Synth 8-6155] done synthesizing module 'kd240_ecat_bd_heater_axi_0_0' (0#1) [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ip/kd240_ecat_bd_heater_axi_0_0/synth/kd240_ecat_bd_heater_axi_0_0.v:53]
+WARNING: [Synth 8-3936] Found unconnected internal register 'abs_err_reg' and it is trimmed from '32' to '31' bits. [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/src/system_fsm.sv:41]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg4_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:234]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg5_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:235]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg6_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:236]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg7_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:237]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg9_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:239]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg10_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:240]
+WARNING: [Synth 8-6014] Unused sequential element slv_reg11_reg was removed.  [c:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.gen/sources_1/bd/kd240_ecat_bd/ipshared/4d64/hdl/heater_axi_slave_lite_v1_0_S00_AXI.v:241]
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized69 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized11 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized11 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized11 is either unconnected or has no load
+INFO: [Synth 8-7129] Port DEC_OP_STATE[11] in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port DEC_OP_STATE[10] in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port DEC_OP_STATE[9] in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port DEC_OP_STATE[8] in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port DIVIDE_BY_ZERO_IN in module flt_dec_op is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized55 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized55 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized55 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized45 is either unconnected or has no load
+INFO: [Synth 8-7129] Port B[8] in module carry_chain__parameterized3 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized43 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized43 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized43 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized47 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized47 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized47 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized67 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized65 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized65 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized65 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized63 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized41 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized41 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized41 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized59 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized59 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized59 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized61 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized61 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized61 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized57 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized57 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized57 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized53 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized53 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized53 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized51 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized51 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized51 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized49 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized49 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized49 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized21 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[14] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[13] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[12] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[11] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[10] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[9] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[8] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[7] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[6] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[5] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[4] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[3] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[2] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[1] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[0] in module carry_chain__parameterized2 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CLK in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CE in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SCLR in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SSET in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port SINIT in module xbip_pipe_v3_0_11_viv__parameterized15 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[2] in module carry_chain__parameterized1 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[1] in module carry_chain__parameterized1 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[0] in module carry_chain__parameterized1 is either unconnected or has no load
+INFO: [Synth 8-7129] Port CARRYS_OUT[0] in module compare_eq_im__parameterized0 is either unconnected or has no load
+INFO: [Synth 8-7129] Port A[31] in module special_detect is either unconnected or has no load
+INFO: [Synth 8-7129] Port ZERO_ALIGN in module flt_add_exp_sp is either unconnected or has no load
+INFO: [Synth 8-7129] Port ROUND_EXP_INC in module flt_add_exp_sp is either unconnected or has no load
+INFO: [Synth 8-7129] Port ADD_MANT_MSBS[1] in module flt_add_exp_sp is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2039.777 ; gain = 475.816
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2039.777 ; gain = 475.816
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 2039.777 ; gain = 475.816
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.129 . Memory (MB): peak = 2039.777 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 676 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.runs/kd240_ecat_bd_heater_axi_0_0_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.runs/kd240_ecat_bd_heater_axi_0_0_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2039.777 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 70 instances were transformed.
+  DSP48E1 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 6 instances
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 8 instances
+  FDE => FDRE: 56 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.286 . Memory (MB): peak = 2039.777 ; gain = 0.000
+INFO: [Designutils 20-5008] Incremental synthesis strategy off
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2039.777 ; gain = 475.816
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xck24-ubva530-2LV-c
+INFO: [Synth 8-6742] Reading net delay rules and data
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2039.777 ; gain = 475.816
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:21 . Memory (MB): peak = 2039.777 ; gain = 475.816
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'system_fsm'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'virtual_plant'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'sensor_noise_float'
+INFO: [Synth 8-802] inferred FSM for state register 'state_write_reg' in module 'heater_axi_slave_lite_v1_0_S00_AXI'
+INFO: [Synth 8-802] inferred FSM for state register 'state_read_reg' in module 'heater_axi_slave_lite_v1_0_S00_AXI'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 ST_IDLE |                               00 |                               00
+                  ST_RUN |                               01 |                               01
+               ST_STABLE |                               10 |                               10
+                ST_FAULT |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'system_fsm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                             0000
+              MULT_START |                              001 |                             0001
+               MULT_WAIT |                              010 |                             0010
+              ADD1_START |                              011 |                             0011
+               ADD1_WAIT |                              100 |                             0100
+              ADD2_START |                              101 |                             0101
+               ADD2_WAIT |                              110 |                             0110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'virtual_plant'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  S_IDLE |                               00 |                               00
+             S_ADD_START |                               01 |                               01
+              S_ADD_WAIT |                               10 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'sensor_noise_float'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    Idle |                               00 |                               00
+                   Waddr |                               01 |                               10
+                   Wdata |                               10 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_write_reg' using encoding 'sequential' in module 'heater_axi_slave_lite_v1_0_S00_AXI'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    Idle |                               00 |                               00
+                   Raddr |                               01 |                               10
+                   Rdata |                               10 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_read_reg' using encoding 'sequential' in module 'heater_axi_slave_lite_v1_0_S00_AXI'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 2039.777 ; gain = 475.816
+---------------------------------------------------------------------------------
+INFO: [Synth 8-223] decloning instance 'fp_add:/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'fp_add:/U0/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'fp_add:/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'fp_add:/U0/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'fp_mult:/U0/i_synth/MULT.OP/i_non_prim.R_AND_R/LOGIC.R_AND_R/EXTRA_LSB_BIT_DEL' (delay__parameterized0) to 'fp_mult:/U0/i_synth/MULT.OP/i_non_prim.R_AND_R/LOGIC.R_AND_R/EXTRA_LSB_RND1_DEL'
+INFO: [Synth 8-223] decloning instance 'fp_mult:/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'fp_mult:/U0/i_synth/DELAY_ACCUM_OVERFLOW'
+INFO: [Synth 8-223] decloning instance 'fp_mult:/U0/i_synth/DELAY_DIVIDE_BY_ZERO' (delay__parameterized0) to 'fp_mult:/U0/i_synth/DELAY_ACCUM_INPUT_OVERFLOW'
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 360 (col length:72)
+BRAMs: 432 (col length: RAMB18 72 RAMB36 36)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 2055.836 ; gain = 491.875
+---------------------------------------------------------------------------------
+ Sort Area is  result3_0 : 0 0 : 958 958 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 2693.961 ; gain = 1130.000
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:35 ; elapsed = 00:00:40 . Memory (MB): peak = 2712.008 ; gain = 1148.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:36 ; elapsed = 00:00:41 . Memory (MB): peak = 2741.598 ; gain = 1177.637
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++------------------------------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name                         | DSP Mapping           | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------------------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|dsp48e1_wrapper_464                 | Dynamic               | -      | -      | -      | -      | 40     | -    | -    | -    | -    | 1     | 1    | 1    | 
+|dsp48e1_wrapper__parameterized0_393 | (C'+(A''*B')')'       | 24     | 16     | 35     | -      | 35     | 2    | 1    | 1    | -    | -     | 1    | 1    | 
+|dsp_341                             | (C+(A'*B')')'         | 24     | 17     | 0      | -      | 17     | 1    | 1    | 0    | -    | -     | 1    | 1    | 
+|dsp_341                             | (PCIN>>17+(A'*B'')')' | 0      | 7      | -      | -      | 45     | 1    | 2    | -    | -    | -     | 1    | 1    | 
+|dsp_270                             | (C+(A'*B')')'         | 24     | 17     | 0      | -      | 17     | 1    | 1    | 0    | -    | -     | 1    | 1    | 
+|dsp_270                             | (PCIN>>17+(A'*B'')')' | 0      | 7      | -      | -      | 45     | 1    | 2    | -    | -    | -     | 1    | 1    | 
+|pwm_gen_float                       | A*B                   | 24     | 17     | -      | -      | 41     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|dsp48e1_wrapper_219                 | Dynamic               | -      | -      | -      | -      | 40     | -    | -    | -    | -    | 1     | 1    | 1    | 
+|dsp48e1_wrapper__parameterized0_148 | (C'+(A''*B')')'       | 24     | 16     | 35     | -      | 35     | 2    | 1    | 1    | -    | -     | 1    | 1    | 
+|dsp_96                              | (C+(A'*B')')'         | 24     | 17     | 0      | -      | 17     | 1    | 1    | 0    | -    | -     | 1    | 1    | 
+|dsp_96                              | (PCIN>>17+(A'*B'')')' | 0      | 7      | -      | -      | 45     | 1    | 2    | -    | -    | -     | 1    | 1    | 
+|dsp                                 | (C+(A'*B')')'         | 24     | 17     | 0      | -      | 17     | 1    | 1    | 0    | -    | -     | 1    | 1    | 
+|dsp                                 | (PCIN>>17+(A'*B'')')' | 0      | 7      | -      | -      | 45     | 1    | 2    | -    | -    | -     | 1    | 1    | 
+|dsp48e1_wrapper                     | Dynamic               | -      | -      | -      | -      | 40     | -    | -    | -    | -    | 1     | 1    | 1    | 
+|dsp48e1_wrapper__parameterized0     | (C'+(A''*B')')'       | 24     | 16     | 35     | -      | 35     | 2    | 1    | 1    | -    | -     | 1    | 1    | 
++------------------------------------+-----------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------------+------+
+|      |Cell            |Count |
++------+----------------+------+
+|1     |CARRY8          |    12|
+|2     |DSP48E1         |     6|
+|3     |DSP_ALU         |     9|
+|6     |DSP_A_B_DATA    |     9|
+|9     |DSP_C_DATA      |     9|
+|11    |DSP_MULTIPLIER  |     9|
+|12    |DSP_M_DATA      |     9|
+|14    |DSP_OUTPUT      |     9|
+|17    |DSP_PREADD      |     9|
+|18    |DSP_PREADD_DATA |     9|
+|19    |LUT1            |    47|
+|20    |LUT2            |   978|
+|21    |LUT3            |   872|
+|22    |LUT4            |   260|
+|23    |LUT5            |   405|
+|24    |LUT6            |   610|
+|25    |MUXCY           |   374|
+|26    |MUXF7           |     2|
+|27    |SRL16E          |   103|
+|28    |XORCY           |   223|
+|29    |FDCE            |  1131|
+|30    |FDE             |    56|
+|31    |FDPE            |    48|
+|32    |FDRE            |  2640|
++------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:44 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:41 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+Synthesis Optimization Complete : Time (s): cpu = 00:00:40 ; elapsed = 00:00:44 . Memory (MB): peak = 2955.414 ; gain = 1391.453
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.089 . Memory (MB): peak = 2955.414 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 682 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2955.414 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 137 instances were transformed.
+  (CARRY4) => CARRY8: 66 instances
+  DSP48E1 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 6 instances
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 9 instances
+  FDE => FDRE: 56 instances
+
+Synth Design complete | Checksum: 4469ea6c
+INFO: [Common 17-83] Releasing license: Synthesis
+171 Infos, 30 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:58 . Memory (MB): peak = 2955.414 ; gain = 2351.914
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 2955.414 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.runs/kd240_ecat_bd_heater_axi_0_0_synth_1/kd240_ecat_bd_heater_axi_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP kd240_ecat_bd_heater_axi_0_0, cache-ID = d354709dd8198689
+INFO: [Coretcl 2-1174] Renamed 628 cell refs.
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2955.414 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/Users/user/Desktop/KD240/01_vivado/kd240_ecat_lan9252/kd240_ecat_lan9252.runs/kd240_ecat_bd_heater_axi_0_0_synth_1/kd240_ecat_bd_heater_axi_0_0.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file kd240_ecat_bd_heater_axi_0_0_utilization_synth.rpt -pb kd240_ecat_bd_heater_axi_0_0_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue May 19 10:21:43 2026...

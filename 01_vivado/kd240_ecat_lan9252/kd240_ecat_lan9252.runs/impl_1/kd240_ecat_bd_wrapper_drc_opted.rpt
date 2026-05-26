@@ -1,0 +1,69 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Tue May 19 13:40:58 2026
+| Host         : pjh running 64-bit major release  (build 9200)
+| Command      : report_drc -file kd240_ecat_bd_wrapper_drc_opted.rpt -pb kd240_ecat_bd_wrapper_drc_opted.pb -rpx kd240_ecat_bd_wrapper_drc_opted.rpx
+| Design       : kd240_ecat_bd_wrapper
+| Device       : xck24-ubva530-2LV-c
+| Speed File   : -2LV
+| Design State : Synthesized
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 6
++----------+----------+---------------------------------------------------------------------+--------+
+| Rule     | Severity | Description                                                         | Checks |
++----------+----------+---------------------------------------------------------------------+--------+
+| DPIP-2   | Warning  | Input pipelining                                                    | 1      |
+| DPOP-3   | Warning  | PREG Output pipelining                                              | 1      |
+| DPOP-4   | Warning  | MREG Output pipelining                                              | 1      |
+| AVAL-155 | Advisory | enum_AMULTSEL_BMULTSEL_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND | 3      |
++----------+----------+---------------------------------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+DPIP-2#1 Warning
+Input pipelining  
+DSP kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_pwm_gen/result3 input kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_pwm_gen/result3/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+Related violations: <none>
+
+DPOP-3#1 Warning
+PREG Output pipelining  
+DSP kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_pwm_gen/result3 output kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_pwm_gen/result3/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+Related violations: <none>
+
+DPOP-4#1 Warning
+MREG Output pipelining  
+DSP kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_pwm_gen/result3 multiplier stage kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_pwm_gen/result3/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
+Related violations: <none>
+
+AVAL-155#1 Advisory
+enum_AMULTSEL_BMULTSEL_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_pi_controller/u_add/U0/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP: DSP48E2 is not using the D port (AMULTSEL = A and BMULTSEL = B). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-155#2 Advisory
+enum_AMULTSEL_BMULTSEL_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_sensor_noise/u_add_noise/U0/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP: DSP48E2 is not using the D port (AMULTSEL = A and BMULTSEL = B). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+AVAL-155#3 Advisory
+enum_AMULTSEL_BMULTSEL_enum_DREG_ADREG_0_connects_CED_CEAD_RSTD_GND  
+kd240_ecat_bd_i/heater_axi_0/inst/heater_axi_slave_lite_v1_0_S00_AXI_inst/u_heater_core/u_virtual_plant/u_add/U0/i_synth/ADDSUB_OP.ADDSUB/DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.SHIFT_RND/i_no_versal_es1_workaround.DSP: DSP48E2 is not using the D port (AMULTSEL = A and BMULTSEL = B). For improved power characteristics, set DREG and ADREG to '1', tie CED, CEAD, and RSTD to logic '0'.
+Related violations: <none>
+
+
