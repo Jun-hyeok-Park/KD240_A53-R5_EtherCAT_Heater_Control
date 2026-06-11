@@ -1,0 +1,51 @@
+DcAssignActive: 0x300
+Op2SafeOpWaitTime: 500
+PreOp2InitWaitTime: 5000
+SafeOp2PreOpWaitTime: 5000
+SafeOp2OpWaitTime: 9000
+PreOp2SafeOpWaitTime: 9000
+Init2PreOpWaitTime: 2000
+
+IoInput: 0, 48
+IoOutput: 0, 14
+
+ControlWord: 0, 0, 2
+TargetTempRaw: 2, 0, 4
+KpRaw: 6, 0, 4
+KiRaw: 10, 0, 4
+
+StatusWord: 0, 0, 2
+State: 2, 0, 2
+CurrentTempRaw: 4, 0, 4
+ErrorRaw: 8, 0, 4
+UCtrlRaw: 12, 0, 4
+DutyCnt: 16, 0, 4
+TuneKRaw: 20, 0, 4
+TuneLRaw: 24, 0, 4
+TuneTRaw: 28, 0, 4
+TuneKpRaw: 32, 0, 4
+TuneKiRaw: 36, 0, 4
+TunedGainValid: 40, 0, 4
+AutoTuneError: 44, 0, 4
+
+[boot2init]
+
+[init2boot]
+
+[init2preop]
+SMConfig: 0x0,0x1000,128,0x26,1
+SMConfig: 0x1,0x1080,128,0x22,1
+SMConfig: 0x2,0x1100,14,0x64,1
+SMConfig: 0x3,0x1400,48,0x20,1
+FMMUConfig: 0x0,0x1100,14,2
+FMMUConfig: 0x1,0x1400,48,1
+
+[preop2init]
+
+[preop2safeop]
+
+[safeop2preop]
+
+[safeop2op]
+
+[op2safeop]
