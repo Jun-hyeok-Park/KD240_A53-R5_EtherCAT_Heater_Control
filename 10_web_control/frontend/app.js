@@ -232,12 +232,17 @@ function handleWsMessage(message) {
   } else if (message.type === "event.log") {
     addLog(message);
   } else if (message.type === "adapter.state") {
+    const faultText = message.fault ? ` fault: ${message.fault}` : "";
     setPill(
       el.adapterBadge,
-      `Adapter: ${message.adapter}`,
-      message.connected ? "ready" : "warn",
+      `Adapter: ${message.adapter}${faultText}`,
+      message.fault ? "fault" : message.connected ? "ready" : "warn",
     );
-    setPill(el.backendState, `Backend: ${message.connected ? "connected" : "disconnected"}`, message.connected ? "ready" : "warn");
+    setPill(
+      el.backendState,
+      message.fault ? `Backend: fault` : `Backend: ${message.connected ? "connected" : "disconnected"}`,
+      message.fault ? "fault" : message.connected ? "ready" : "warn",
+    );
   } else if (message.type === "autotune.event") {
     addLog({
       timestamp: message.timestamp || new Date().toISOString(),

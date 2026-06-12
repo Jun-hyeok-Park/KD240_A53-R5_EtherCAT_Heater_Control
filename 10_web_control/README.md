@@ -26,6 +26,7 @@ implementation.
     service.py
     dto.py
     protocol.py
+    pdo_codec.py
     ws.py
     adapters/
       base.py
@@ -41,6 +42,11 @@ implementation.
     index.html
     styles.css
     app.js
+  tests/
+    test_pdo_codec.py
+    test_wmx_ethercat_adapter.py
+  tools/
+    manual_wmx_smoke.py
 ```
 
 ## Run
@@ -101,6 +107,11 @@ Minimum phase-1 endpoints:
 | Method | Path | Purpose |
 |---|---|---|
 | `GET` | `/api/health` | Backend health and active adapter |
+| `GET` | `/api/mode` | Active backend mode and diagnostics |
+| `POST` | `/api/mode` | Switch backend mode |
+| `POST` | `/api/connect` | Connect active adapter |
+| `POST` | `/api/disconnect` | Disconnect active adapter |
+| `GET` | `/api/adapter/diagnostics` | Adapter diagnostics |
 | `GET` | `/api/status` | Latest decoded status DTO |
 | `POST` | `/api/control/run` | RUN with setpoint/Kp/Ki |
 | `POST` | `/api/control/params` | Update setpoint/Kp/Ki without changing run state |
@@ -135,6 +146,91 @@ Server-to-client message types:
 - `event.log`
 - `adapter.state`
 - `autotune.event`
+
+## Protocol Codec Tests
+
+The PDO codec is tested against the legacy v4.5 GUI byte layout:
+
+- RxPDO: 14 bytes, `ControlWord` UINT16 little-endian plus three float32 raw UINT32 values
+- TxPDO: 48 bytes, `StatusWord`, packed state, temperature/control/tuning fields
+
+Run from `10_web_control`:
+
+```powershell
+python -m unittest discover -s tests
+```
+
+With the bundled Codex Python runtime:
+
+```powershell
+C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\python.exe -m unittest discover -s tests
+```
+
+## EtherCAT Mode
+
+EtherCAT mode is implemented through `WmxEthercatAdapter`, but it is not
+the default. Mock mode remains the safe default and does not import WMX3.
+
+Start directly in EtherCAT mode:
+
+```powershell
+cd C:\Users\user\Desktop\KD240\10_web_control
+$env:KD240_BACKEND_MODE="ethercat"
+python backend\server.py
+```
+
+Or switch a running server:
+
+```powershell
+Invoke-RestMethod -Method Post `
+  -Uri http://127.0.0.1:8080/api/mode `
+  -ContentType "application/json" `
+  -Body '{"mode":"ethercat"}'
+```
+
+Check diagnostics:
+
+```powershell
+Invoke-RestMethod http://127.0.0.1:8080/api/adapter/diagnostics
+```
+
+The adapter uses the same WMX3 pattern as the v4.5 GUI:
+
+- `WMX_ROOT`: default `C:\Program Files\SoftServo\WMX3`
+- Python API path: `C:\Program Files\SoftServo\WMX3\Lib\PythonApi`
+- `WMX3Api()`
+- `CreateDevice(..., DeviceType.DeviceTypeLowPriority, INFINITE)`
+- `Io(wmx)`
+- `SetOutBytes(0x00, 14, list(rxpdo_bytes))`
+- `GetInBytes(0x00, 48)`
+
+Manual WMX smoke test:
+
+```powershell
+cd C:\Users\user\Desktop\KD240\10_web_control
+python tools\manual_wmx_smoke.py
+python tools\manual_wmx_smoke.py --run --target 80 --kp 0.04 --ki 0.003
+```
+
+Before real KD240 EtherCAT testing, confirm:
+
+- WMX3 runtime and Python API are installed.
+- The same Python environment can import `WMX3ApiPython`.
+- ENI/ESI mapping is still one channel: `IoOutput 14`, `IoInput 48`.
+- KD240 A53 EtherCAT slave app is running.
+- R5 heater control app is running.
+- EtherCAT slave is in OP state before sending RUN.
+- `SetOutBytes(0x00, 14)` and `GetInBytes(0x00, 48)` match the active ENI.
+
+Python version note:
+
+The current Web backend uses modern Python syntax and the Codex bundled
+runtime is newer than the Python 3.6 environment often used with WMX3.
+If `WMX3ApiPython` only works in Python 3.6 and this server cannot run
+there, keep this Web backend on a modern Python and split WMX3 access
+into a small Python 3.6 subprocess/bridge process. The bridge should own
+`WMX3ApiPython`, expose a narrow local IPC protocol, and use the same
+`pdo_codec` byte contract for RxPDO/TxPDO.
 
 ## UI Layout
 

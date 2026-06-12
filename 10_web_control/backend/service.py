@@ -7,7 +7,11 @@ import time
 from typing import Any, Dict, List, Tuple
 
 from adapters.base import BackendAdapterError, IHeaterBackendAdapter
+from adapters.kd240_shared_memory_adapter import Kd240SharedMemoryAdapter
+from adapters.mock_adapter import MockAdapter
+from adapters.wmx_ethercat_adapter import WmxEthercatAdapter
 from dto import CommandDTO, HistorySample, StatusDTO, response_envelope, utc_timestamp
+from protocol import AutoTuneState, HeaterState, pack_state
 
 
 class HeaterControlService:
@@ -16,6 +20,7 @@ class HeaterControlService:
     channel_count = 8
     active_channel = 1
     ws_period_ms = 500
+    available_modes = ["mock", "ethercat", "shared_memory"]
 
     def __init__(self, adapter: IHeaterBackendAdapter) -> None:
         self.adapter = adapter
@@ -23,10 +28,12 @@ class HeaterControlService:
         self.started_at = time.monotonic()
         self.auto_apply_after_done = False
         self._auto_apply_performed = False
+        self._adapter_fault: str | None = None
         self._lock = threading.RLock()
         self._seq = 0
         self._history: List[HistorySample] = []
         self._event_queue: List[Dict[str, Any]] = []
+        self._last_status = self._default_status()
         self._last_history_sample_at = 0.0
         self._last_history_batch_seq = -1
         self._last_auto_tune_state: int | None = None
@@ -50,12 +57,112 @@ class HeaterControlService:
                 "txpdo_bytes": 48,
                 "ws_period_ms": self.ws_period_ms,
                 "uptime_sec": round(time.monotonic() - self.started_at, 3),
+                "diagnostics": self.adapter.get_diagnostics(),
+            }
+
+    def get_mode(self) -> Dict[str, Any]:
+        with self._lock:
+            return {
+                "ok": True,
+                "mode": self.adapter.name,
+                "available_modes": self.available_modes,
+                "connected": self.adapter.connected,
+                "fault": self._current_adapter_fault(),
+                "diagnostics": self.adapter.get_diagnostics(),
+            }
+
+    def set_mode(self, payload: Dict[str, Any]) -> Tuple[int, Dict[str, Any]]:
+        mode = str(payload.get("mode", "")).strip().lower()
+        if mode not in self.available_modes:
+            return 400, {
+                "ok": False,
+                "message": f"Unsupported mode: {mode}",
+                "available_modes": self.available_modes,
+            }
+
+        with self._lock:
+            if self.adapter.name == mode:
+                return 200, self.get_mode()
+
+            old_adapter = self.adapter
+            try:
+                old_adapter.disconnect()
+            except Exception:  # noqa: BLE001
+                pass
+
+            self.adapter = self._create_adapter(mode)
+            self._adapter_fault = None
+            self._last_adapter_state = None
+            self._history = []
+            self._last_history_sample_at = 0.0
+            self._last_status = self._default_status()
+
+            ok = True
+            message = f"Adapter mode changed to {mode}"
+            if mode != "mock":
+                try:
+                    self.adapter.connect()
+                except BackendAdapterError as exc:
+                    ok = False
+                    message = f"Adapter mode changed to {mode}, but connect failed: {exc}"
+                    self._adapter_fault = str(exc)
+                except Exception as exc:  # noqa: BLE001
+                    ok = False
+                    message = f"Adapter mode changed to {mode}, but connect raised: {exc}"
+                    self._adapter_fault = str(exc)
+
+            self._log("info" if ok else "warn", message, {"mode": mode})
+            return 200, {
+                "ok": ok,
+                "message": message,
+                "mode": self.adapter.name,
+                "available_modes": self.available_modes,
+                "connected": self.adapter.connected,
+                "fault": self._current_adapter_fault(),
+                "diagnostics": self.adapter.get_diagnostics(),
+                "status": self._last_status.to_dict(),
+            }
+
+    def connect_adapter(self) -> Tuple[int, Dict[str, Any]]:
+        with self._lock:
+            try:
+                self.adapter.connect()
+                self._adapter_fault = None
+                self._log("info", "Adapter connected", {"mode": self.adapter.name})
+                ok = True
+                message = "Adapter connected"
+            except BackendAdapterError as exc:
+                self._adapter_fault = str(exc)
+                self._log("warn", f"Adapter connect failed: {exc}", {"mode": self.adapter.name})
+                ok = False
+                message = str(exc)
+            return 200, {
+                "ok": ok,
+                "message": message,
+                "mode": self.adapter.name,
+                "connected": self.adapter.connected,
+                "fault": self._current_adapter_fault(),
+                "diagnostics": self.adapter.get_diagnostics(),
+            }
+
+    def disconnect_adapter(self) -> Tuple[int, Dict[str, Any]]:
+        with self._lock:
+            self.adapter.disconnect()
+            self._log("info", "Adapter disconnected", {"mode": self.adapter.name})
+            return 200, {
+                "ok": True,
+                "message": "Adapter disconnected",
+                "mode": self.adapter.name,
+                "connected": self.adapter.connected,
+                "diagnostics": self.adapter.get_diagnostics(),
             }
 
     def get_status(self) -> Dict[str, Any]:
         with self._lock:
             status = self._read_status_locked()
-            return response_envelope(self.adapter.name, self.adapter.connected, status)
+            response = response_envelope(self.adapter.name, self.adapter.connected, status)
+            response["fault"] = self._current_adapter_fault()
+            return response
 
     def get_history(self) -> Dict[str, Any]:
         with self._lock:
@@ -65,12 +172,25 @@ class HeaterControlService:
                 "samples": [sample.to_dict() for sample in self._history],
             }
 
+    def get_adapter_diagnostics(self) -> Dict[str, Any]:
+        with self._lock:
+            return {
+                "ok": True,
+                "mode": self.adapter.name,
+                "connected": self.adapter.connected,
+                "fault": self._current_adapter_fault(),
+                "diagnostics": self.adapter.get_diagnostics(),
+            }
+
     def run(self, payload: Dict[str, Any]) -> Tuple[int, Dict[str, Any]]:
         with self._lock:
             command = CommandDTO.from_payload(payload, self.command)
             self.command = command
             self._auto_apply_performed = False
-            status = self.adapter.run(command)
+            try:
+                status = self.adapter.run(command)
+            except Exception as exc:  # noqa: BLE001
+                return self._adapter_command_error("RUN command failed", exc)
             self._append_history_locked(status, force=True)
             self._log("info", "RUN command sent", command.to_dict())
             return 200, self._command_response("RUN command sent", status)
@@ -79,21 +199,30 @@ class HeaterControlService:
         with self._lock:
             command = CommandDTO.from_payload(payload, self.command)
             self.command = command
-            status = self.adapter.write_params(command)
+            try:
+                status = self.adapter.write_params(command)
+            except Exception as exc:  # noqa: BLE001
+                return self._adapter_command_error("Parameter update failed", exc)
             self._append_history_locked(status, force=True)
             self._log("info", "Parameter update sent", command.to_dict())
             return 200, self._command_response("Parameter update sent", status)
 
     def stop(self) -> Tuple[int, Dict[str, Any]]:
         with self._lock:
-            status = self.adapter.stop()
+            try:
+                status = self.adapter.stop()
+            except Exception as exc:  # noqa: BLE001
+                return self._adapter_command_error("STOP command failed", exc)
             self._append_history_locked(status, force=True)
             self._log("info", "STOP command sent", {})
             return 200, self._command_response("STOP command sent", status)
 
     def reset(self) -> Tuple[int, Dict[str, Any]]:
         with self._lock:
-            status = self.adapter.reset()
+            try:
+                status = self.adapter.reset()
+            except Exception as exc:  # noqa: BLE001
+                return self._adapter_command_error("RESET command failed", exc)
             self._auto_apply_performed = False
             self._append_history_locked(status, force=True)
             self._log("info", "RESET command sent", {})
@@ -104,7 +233,10 @@ class HeaterControlService:
             command = CommandDTO.from_payload(payload, self.command)
             self.command = command
             self._auto_apply_performed = False
-            status = self.adapter.start_auto_tune(command)
+            try:
+                status = self.adapter.start_auto_tune(command)
+            except Exception as exc:  # noqa: BLE001
+                return self._adapter_command_error("Auto Tune Start command failed", exc)
             self._append_history_locked(status, force=True)
             self._log("info", "Auto Tune Start command sent", command.to_dict())
             return 200, self._command_response("Auto Tune Start command sent", status)
@@ -133,7 +265,7 @@ class HeaterControlService:
             target_temp = CommandDTO.from_payload(payload, self.command).target_temp
             try:
                 status = self.adapter.apply_tuned_gain(target_temp)
-            except BackendAdapterError as exc:
+            except Exception as exc:  # noqa: BLE001
                 current = self._read_status_locked()
                 self._log("warn", str(exc), {})
                 return 409, {
@@ -197,7 +329,14 @@ class HeaterControlService:
             return messages
 
     def _read_status_locked(self) -> StatusDTO:
-        status = self.adapter.read_status()
+        try:
+            status = self.adapter.read_status()
+            self._adapter_fault = self._extract_adapter_fault()
+        except Exception as exc:  # noqa: BLE001
+            self._adapter_fault = str(exc)
+            self._log("warn", f"Adapter read_status failed: {exc}", {"mode": self.adapter.name})
+            status = self._last_status
+        self._last_status = status
         self._append_history_locked(status, force=False)
         return status
 
@@ -216,7 +355,20 @@ class HeaterControlService:
             "message": message,
             "adapter": self.adapter.name,
             "connected": self.adapter.connected,
-            "status": status.to_dict(),
+                "status": status.to_dict(),
+            }
+
+    def _adapter_command_error(self, message: str, exc: Exception) -> Tuple[int, Dict[str, Any]]:
+        self._adapter_fault = str(exc)
+        self._log("warn", f"{message}: {exc}", {"mode": self.adapter.name})
+        return 409, {
+            "ok": False,
+            "message": f"{message}: {exc}",
+            "adapter": self.adapter.name,
+            "connected": self.adapter.connected,
+            "fault": self._current_adapter_fault(),
+            "diagnostics": self.adapter.get_diagnostics(),
+            "status": self._last_status.to_dict(),
         }
 
     def _status_message(self, status: StatusDTO) -> Dict[str, Any]:
@@ -235,6 +387,7 @@ class HeaterControlService:
             "txpdo_bytes": 48,
             "ws_period_ms": self.ws_period_ms,
             "auto_apply_after_done": self.auto_apply_after_done,
+            "fault": self._current_adapter_fault(),
             "status": status.to_dict(),
         }
 
@@ -261,7 +414,7 @@ class HeaterControlService:
             "timestamp": utc_timestamp(),
             "adapter": self.adapter.name,
             "connected": connected,
-            "fault": None,
+            "fault": self._current_adapter_fault(),
         }
 
     def _apply_tuned_gain_if_ready_locked(self, status: StatusDTO) -> StatusDTO:
@@ -300,3 +453,42 @@ class HeaterControlService:
         events = list(self._event_queue)
         self._event_queue.clear()
         return events
+
+    def _create_adapter(self, mode: str) -> IHeaterBackendAdapter:
+        if mode == "mock":
+            return MockAdapter()
+        if mode == "ethercat":
+            return WmxEthercatAdapter()
+        if mode == "shared_memory":
+            return Kd240SharedMemoryAdapter()
+        raise BackendAdapterError(f"Unsupported adapter mode: {mode}")
+
+    def _extract_adapter_fault(self) -> str | None:
+        diagnostics = self.adapter.get_diagnostics()
+        fault = diagnostics.get("fault") or diagnostics.get("last_error")
+        return str(fault) if fault else None
+
+    def _current_adapter_fault(self) -> str | None:
+        return self._adapter_fault or self._extract_adapter_fault()
+
+    def _default_status(self) -> StatusDTO:
+        return StatusDTO(
+            status_word=0,
+            state_packed=pack_state(HeaterState.IDLE, AutoTuneState.IDLE),
+            heater_state=int(HeaterState.IDLE),
+            auto_tune_state=int(AutoTuneState.IDLE),
+            current_temp=0.0,
+            target_temp=self.command.target_temp,
+            error=0.0,
+            u_ctrl=0.0,
+            duty_cnt=0,
+            tune_k=0.0,
+            tune_l=0.0,
+            tune_t=0.0,
+            tune_kp=0.0,
+            tune_ki=0.0,
+            tuned_gain_valid=False,
+            auto_tune_error=0,
+            kp=self.command.kp,
+            ki=self.command.ki,
+        )

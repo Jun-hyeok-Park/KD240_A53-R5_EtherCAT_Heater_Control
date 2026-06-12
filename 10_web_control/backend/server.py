@@ -50,6 +50,14 @@ def create_handler(service: HeaterControlService, hub: WebSocketHub):
                 self._send_json(HTTPStatus.OK, service.health())
                 return
 
+            if parsed.path == "/api/mode":
+                self._send_json(HTTPStatus.OK, service.get_mode())
+                return
+
+            if parsed.path == "/api/adapter/diagnostics":
+                self._send_json(HTTPStatus.OK, service.get_adapter_diagnostics())
+                return
+
             if parsed.path == "/api/status":
                 self._send_json(HTTPStatus.OK, service.get_status())
                 return
@@ -82,6 +90,12 @@ def create_handler(service: HeaterControlService, hub: WebSocketHub):
             sys.stdout.flush()
 
         def _dispatch_post(self, path: str, payload: Dict[str, Any]) -> Tuple[int, Dict[str, Any]]:
+            if path == "/api/mode":
+                return service.set_mode(payload)
+            if path == "/api/connect":
+                return service.connect_adapter()
+            if path == "/api/disconnect":
+                return service.disconnect_adapter()
             if path == "/api/control/run":
                 return service.run(payload)
             if path == "/api/control/params":
@@ -212,6 +226,9 @@ def main() -> None:
     port = int(os.environ.get("KD240_WEB_PORT", "8080"))
 
     service = HeaterControlService(MockAdapter())
+    initial_mode = os.environ.get("KD240_BACKEND_MODE", "mock").strip().lower()
+    if initial_mode and initial_mode != "mock":
+        service.set_mode({"mode": initial_mode})
     hub = WebSocketHub()
     start_broadcaster(service, hub)
 
