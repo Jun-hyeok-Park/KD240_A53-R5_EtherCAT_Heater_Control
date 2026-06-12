@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KD240 Heater Control Server</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="top-header">
+      <div class="header-title">
+        <h1>KD240 Heater Control Server</h1>
+        <p>A53 Web Gateway | Channel summary | Selected channel detail</p>
+      </div>
+      <div class="header-actions">
+        <span id="adapterBadge" class="pill dark">Adapter: mock</span>
+        <span id="wsBadge" class="pill warn">WS: connecting</span>
+        <button id="headerStartBtn" class="run" type="button">Start</button>
+        <button id="headerStopBtn" class="stop" type="button">Stop</button>
+        <label class="channel-select">
+          <span>Channel</span>
+          <select id="channelSelect"></select>
+        </label>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="panel common-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Common Parameters</h2>
+            <p>Mock backend, KD240 1-channel PDO, 8-channel HMI layout</p>
+          </div>
+          <span id="backendState" class="pill ready">Backend: -</span>
+        </div>
+        <div class="status-grid">
+          <div class="status-card emphasis"><span>Server</span><strong id="serverName">-</strong></div>
+          <div class="status-card"><span>Version</span><strong id="serverVersion">-</strong></div>
+          <div class="status-card"><span>Adapter</span><strong id="adapterMode">-</strong></div>
+          <div class="status-card"><span>Channels</span><strong id="channelCount">8 CH</strong></div>
+          <div class="status-card"><span>RxPDO</span><strong id="rxpdoBytes">14 bytes</strong></div>
+          <div class="status-card"><span>TxPDO</span><strong id="txpdoBytes">48 bytes</strong></div>
+          <div class="status-card"><span>WS Period</span><strong id="wsPeriod">500 ms</strong></div>
+          <div class="status-card"><span>Sequence</span><strong id="sequenceNo">-</strong></div>
+        </div>
+      </section>
+
+      <section class="panel summary-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Channel Summary</h2>
+            <p>CH1 is connected to the current KD240 1-channel mock backend. CH2-CH8 are future placeholders.</p>
+          </div>
+          <span id="selectedChannelPill" class="pill">Selected CH1</span>
+        </div>
+        <div id="channelSummary" class="channel-summary-grid"></div>
+      </section>
+
+      <section class="work-grid">
+        <section class="panel detail-panel">
+          <div class="section-heading">
+            <div>
+              <h2>Selected Channel Detail</h2>
+              <p id="detailSubtitle">CH1 active mock channel</p>
+            </div>
+            <span id="detailState" class="pill ready">IDLE</span>
+          </div>
+
+          <div class="metric-grid">
+            <div class="metric primary"><span>PV Current</span><strong id="pvCurrent">--.- C</strong></div>
+            <div class="metric target"><span>SV Target</span><strong id="svTarget">--.- C</strong></div>
+            <div class="metric fault"><span>Error</span><strong id="errorValue">--.- C</strong></div>
+            <div class="metric"><span>Output</span><strong id="outputPercent">--.- %</strong></div>
+            <div class="metric"><span>Duty</span><strong id="dutyPercent">--.- %</strong></div>
+            <div class="metric"><span>Status Word</span><strong id="statusWord">0x0000</strong></div>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              Setpoint
+              <input id="targetTemp" type="number" value="80" min="-20" max="300" step="0.1">
+            </label>
+            <label>
+              Kp
+              <input id="kp" type="number" value="0.04" min="0" step="0.001">
+            </label>
+            <label>
+              Ki
+              <input id="ki" type="number" value="0.003" min="0" step="0.0001">
+            </label>
+            <label class="checkbox-card">
+              <input id="channelEnable" type="checkbox" checked disabled>
+              <span>Channel Enable</span>
+            </label>
+          </div>
+
+          <div class="button-row">
+            <button id="applyParamsBtn" type="button">Apply Params</button>
+            <button id="runBtn" class="run" type="button">RUN</button>
+            <button id="stopBtn" class="stop" type="button">STOP</button>
+            <button id="resetBtn" class="warn-btn" type="button">RESET</button>
+          </div>
+        </section>
+
+        <section class="panel autotune-panel">
+          <div class="section-heading">
+            <div>
+              <h2>Auto Tune Panel</h2>
+              <p>KD240 extension over the referenced multi-channel HMI layout</p>
+            </div>
+            <span id="autoTuneState" class="pill warn">IDLE</span>
+          </div>
+
+          <div class="button-row two">
+            <button id="autoTuneBtn" type="button">Auto Tune Start</button>
+            <button id="applyTuneBtn" type="button">Apply Tuned Gain</button>
+          </div>
+
+          <label class="checkbox-card wide">
+            <input id="autoApply" type="checkbox">
+            <span>Auto Apply After DONE</span>
+          </label>
+
+          <div class="tune-grid">
+            <div><span>Tune K</span><strong id="tuneK">--</strong></div>
+            <div><span>Tune L</span><strong id="tuneL">--</strong></div>
+            <div><span>Tune T</span><strong id="tuneT">--</strong></div>
+            <div><span>Tuned Kp</span><strong id="tuneKp">--</strong></div>
+            <div><span>Tuned Ki</span><strong id="tuneKi">--</strong></div>
+            <div><span>Auto Tune Error</span><strong id="autoTuneError">0</strong></div>
+          </div>
+
+          <div class="badge-row">
+            <span id="tunedValid" class="pill warn">Tuned Gain: invalid</span>
+            <span id="heaterState" class="pill warn">Heater: IDLE</span>
+          </div>
+        </section>
+      </section>
+
+      <section class="bottom-grid">
+        <section class="panel chart-panel">
+          <div class="section-heading">
+            <div>
+              <h2>Trend Chart</h2>
+              <p>Current Temp, Target Temp, Output %, Duty %, Error</p>
+            </div>
+            <span id="sampleCount" class="pill">0 samples</span>
+          </div>
+          <canvas id="trendChart" width="1100" height="380"></canvas>
+          <div class="legend">
+            <span><i class="line current"></i>Current Temp</span>
+            <span><i class="line target"></i>Target Temp</span>
+            <span><i class="line output"></i>Output %</span>
+            <span><i class="line duty"></i>Duty %</span>
+            <span><i class="line error"></i>Error</span>
+          </div>
+        </section>
+
+        <section class="panel log-panel">
+          <div class="section-heading">
+            <div>
+              <h2>Client Log</h2>
+              <p>REST command log, WebSocket events, Auto Tune events</p>
+            </div>
+            <button id="clearLogBtn" class="light" type="button">Clear</button>
+          </div>
+          <ol id="eventLog" class="event-log"></ol>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
