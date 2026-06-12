@@ -1,7 +1,5 @@
 """Backend adapter interface for KD240 Heater Control."""
 
-from __future__ import annotations
-
 from typing import Any, Dict, List
 
 from dto import CommandDTO, StatusDTO

@@ -4,12 +4,9 @@ The byte layout matches the legacy v4.5 GUI reference:
 `09_GUI/kd240_heater_ethercat_gui_v4_5_report_layout_fix.py`.
 """
 
-from __future__ import annotations
-
 import struct
-from dataclasses import asdict, dataclass
 from enum import IntEnum
-from typing import Any, Dict
+from typing import Any, Dict, Sequence, Tuple
 
 
 RX_PDO_SIZE = 14
@@ -77,37 +74,92 @@ AUTO_TUNE_STATE_NAMES = {
 }
 
 
-@dataclass(frozen=True)
 class TxPdoStatus:
-    status_word: int
-    state_packed: int
-    heater_state: int
-    heater_state_name: str
-    auto_tune_state: int
-    auto_tune_state_name: str
-    current_temp: float
-    error: float
-    u_ctrl: float
-    u_percent: float
-    duty_cnt: int
-    duty_percent: float
-    tune_k: float
-    tune_l: float
-    tune_t: float
-    tune_kp: float
-    tune_ki: float
-    tuned_gain_valid: bool
-    auto_tune_error: int
-    is_run: bool
-    is_stable: bool
-    is_fault: bool
-    is_auto_tune: bool
-    auto_tune_done: bool
-    auto_tune_fail_or_abort: bool
-    tuned_gain_valid_flag: bool
+    def __init__(
+        self,
+        status_word: int,
+        state_packed: int,
+        heater_state: int,
+        heater_state_name: str,
+        auto_tune_state: int,
+        auto_tune_state_name: str,
+        current_temp: float,
+        error: float,
+        u_ctrl: float,
+        u_percent: float,
+        duty_cnt: int,
+        duty_percent: float,
+        tune_k: float,
+        tune_l: float,
+        tune_t: float,
+        tune_kp: float,
+        tune_ki: float,
+        tuned_gain_valid: bool,
+        auto_tune_error: int,
+        is_run: bool,
+        is_stable: bool,
+        is_fault: bool,
+        is_auto_tune: bool,
+        auto_tune_done: bool,
+        auto_tune_fail_or_abort: bool,
+        tuned_gain_valid_flag: bool,
+    ) -> None:
+        self.status_word = status_word
+        self.state_packed = state_packed
+        self.heater_state = heater_state
+        self.heater_state_name = heater_state_name
+        self.auto_tune_state = auto_tune_state
+        self.auto_tune_state_name = auto_tune_state_name
+        self.current_temp = current_temp
+        self.error = error
+        self.u_ctrl = u_ctrl
+        self.u_percent = u_percent
+        self.duty_cnt = duty_cnt
+        self.duty_percent = duty_percent
+        self.tune_k = tune_k
+        self.tune_l = tune_l
+        self.tune_t = tune_t
+        self.tune_kp = tune_kp
+        self.tune_ki = tune_ki
+        self.tuned_gain_valid = tuned_gain_valid
+        self.auto_tune_error = auto_tune_error
+        self.is_run = is_run
+        self.is_stable = is_stable
+        self.is_fault = is_fault
+        self.is_auto_tune = is_auto_tune
+        self.auto_tune_done = auto_tune_done
+        self.auto_tune_fail_or_abort = auto_tune_fail_or_abort
+        self.tuned_gain_valid_flag = tuned_gain_valid_flag
 
     def to_dict(self) -> Dict[str, Any]:
-        return asdict(self)
+        return {
+            "status_word": self.status_word,
+            "state_packed": self.state_packed,
+            "heater_state": self.heater_state,
+            "heater_state_name": self.heater_state_name,
+            "auto_tune_state": self.auto_tune_state,
+            "auto_tune_state_name": self.auto_tune_state_name,
+            "current_temp": self.current_temp,
+            "error": self.error,
+            "u_ctrl": self.u_ctrl,
+            "u_percent": self.u_percent,
+            "duty_cnt": self.duty_cnt,
+            "duty_percent": self.duty_percent,
+            "tune_k": self.tune_k,
+            "tune_l": self.tune_l,
+            "tune_t": self.tune_t,
+            "tune_kp": self.tune_kp,
+            "tune_ki": self.tune_ki,
+            "tuned_gain_valid": self.tuned_gain_valid,
+            "auto_tune_error": self.auto_tune_error,
+            "is_run": self.is_run,
+            "is_stable": self.is_stable,
+            "is_fault": self.is_fault,
+            "is_auto_tune": self.is_auto_tune,
+            "auto_tune_done": self.auto_tune_done,
+            "auto_tune_fail_or_abort": self.auto_tune_fail_or_abort,
+            "tuned_gain_valid_flag": self.tuned_gain_valid_flag,
+        }
 
 
 def clamp(value: float, low: float, high: float) -> float:
@@ -140,7 +192,7 @@ def pack_state(heater_state: int, auto_tune_state: int) -> int:
     return ((int(auto_tune_state) & 0xFF) << 8) | (int(heater_state) & 0xFF)
 
 
-def unpack_state(state_packed: int) -> tuple[int, int]:
+def unpack_state(state_packed: int) -> Tuple[int, int]:
     heater_state = int(state_packed) & 0x00FF
     auto_tune_state = (int(state_packed) >> 8) & 0x00FF
     return heater_state, auto_tune_state
@@ -161,7 +213,7 @@ def encode_rxpdo(control_word: int, target_temp: float, kp: float, ki: float) ->
     return data
 
 
-def decode_txpdo(data: bytes | bytearray | list[int] | tuple[int, ...]) -> TxPdoStatus:
+def decode_txpdo(data: Sequence[int]) -> TxPdoStatus:
     """Decode 48-byte TxPDO into a structured status object."""
 
     raw = bytes(data)

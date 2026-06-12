@@ -7,9 +7,9 @@ import time
 from typing import Any, Dict, List, Tuple
 
 from adapters.base import BackendAdapterError, IHeaterBackendAdapter
+from adapters.ethercat_bridge_adapter import EthercatBridgeAdapter
 from adapters.kd240_shared_memory_adapter import Kd240SharedMemoryAdapter
 from adapters.mock_adapter import MockAdapter
-from adapters.wmx_ethercat_adapter import WmxEthercatAdapter
 from dto import CommandDTO, HistorySample, StatusDTO, response_envelope, utc_timestamp
 from protocol import AutoTuneState, HeaterState, pack_state
 
@@ -20,7 +20,7 @@ class HeaterControlService:
     channel_count = 8
     active_channel = 1
     ws_period_ms = 500
-    available_modes = ["mock", "ethercat", "shared_memory"]
+    available_modes = ["mock", "ethercat_bridge", "shared_memory"]
 
     def __init__(self, adapter: IHeaterBackendAdapter) -> None:
         self.adapter = adapter
@@ -457,8 +457,8 @@ class HeaterControlService:
     def _create_adapter(self, mode: str) -> IHeaterBackendAdapter:
         if mode == "mock":
             return MockAdapter()
-        if mode == "ethercat":
-            return WmxEthercatAdapter()
+        if mode == "ethercat_bridge":
+            return EthercatBridgeAdapter()
         if mode == "shared_memory":
             return Kd240SharedMemoryAdapter()
         raise BackendAdapterError(f"Unsupported adapter mode: {mode}")

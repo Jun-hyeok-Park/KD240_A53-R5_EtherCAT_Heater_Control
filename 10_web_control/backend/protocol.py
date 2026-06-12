@@ -1,7 +1,5 @@
 """KD240 heater protocol constants and byte helpers."""
 
-from __future__ import annotations
-
 from typing import Any, Dict
 
 from pdo_codec import (

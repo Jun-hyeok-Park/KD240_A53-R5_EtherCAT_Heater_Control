@@ -1,8 +1,8 @@
 # KD240 Heater Web Control
 
 This folder contains the new KD240 Heater Web Control implementation.
-The current phase is a mock-only Web UI for validating the REST API,
-WebSocket stream, DTOs, and backend adapter split.
+The current phase validates the Web UI, REST API, WebSocket stream, DTOs,
+mock adapter, and the WMX Python 3.6 bridge split.
 
 `09_GUI` remains legacy reference material and is not modified by this
 implementation.
@@ -11,9 +11,10 @@ implementation.
 
 - Multi-channel HMI-style Web UI under `frontend/`
 - Modular backend under `backend/`
-- Mock backend adapter only
-- Placeholder adapters for future WMX3 EtherCAT and KD240 shared-memory modes
-- No WMX3, EtherCAT, or KD240 shared-memory connection in this phase
+- Mock backend adapter
+- EtherCAT bridge adapter for a separate WMX3 Python 3.6 bridge process
+- Placeholder adapter for future KD240 shared-memory mode
+- The Web backend does not import `WMX3ApiPython` directly
 - Current KD240 PDO is still one channel: CH1 is active, CH2-CH8 are disabled future placeholders
 - RxPDO 14 bytes / TxPDO 48 bytes remain the protocol baseline
 
@@ -30,9 +31,12 @@ implementation.
     ws.py
     adapters/
       base.py
+      ethercat_bridge_adapter.py
       mock_adapter.py
       wmx_ethercat_adapter.py
       kd240_shared_memory_adapter.py
+  bridge/
+    wmx_bridge_py36.py
   docs/
     web_control_architecture.md
     kd240_protocol.md
@@ -43,7 +47,9 @@ implementation.
     styles.css
     app.js
   tests/
+    fake_wmx_bridge.py
     test_pdo_codec.py
+    test_python36_wmx_smoke_compat.py
     test_wmx_ethercat_adapter.py
   tools/
     manual_wmx_smoke.py
@@ -51,7 +57,7 @@ implementation.
 
 ## Run
 
-From this folder:
+Run the Web backend with Python 3.10+:
 
 ```powershell
 cd C:\Users\user\Desktop\KD240\10_web_control
@@ -168,16 +174,25 @@ C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\py
 
 ## EtherCAT Mode
 
-EtherCAT mode is implemented through `WmxEthercatAdapter`, but it is not
-the default. Mock mode remains the safe default and does not import WMX3.
+EtherCAT access is split into two processes:
 
-Start directly in EtherCAT mode:
+- Web backend, Python 3.10+: REST, WebSocket, Web UI, `EthercatBridgeAdapter`
+- WMX bridge, Python 3.6: `WMX3ApiPython`, `SetOutBytes`, `GetInBytes`
+
+Mock mode remains the safe default and does not start the bridge.
+
+Start the Web backend directly in EtherCAT bridge mode:
 
 ```powershell
 cd C:\Users\user\Desktop\KD240\10_web_control
-$env:KD240_BACKEND_MODE="ethercat"
+$env:KD240_BACKEND_MODE="ethercat_bridge"
+$env:KD240_WMX_PY36="C:\Path\To\WMX3\Python36\python.exe"
 python backend\server.py
 ```
+
+`KD240_WMX_PY36` must point to the Python 3.6 executable that can import
+`WMX3ApiPython` on the WMX master PC. If it is not set, the adapter uses
+`python` from `PATH`.
 
 Or switch a running server:
 
@@ -185,7 +200,7 @@ Or switch a running server:
 Invoke-RestMethod -Method Post `
   -Uri http://127.0.0.1:8080/api/mode `
   -ContentType "application/json" `
-  -Body '{"mode":"ethercat"}'
+  -Body '{"mode":"ethercat_bridge"}'
 ```
 
 Check diagnostics:
@@ -194,20 +209,28 @@ Check diagnostics:
 Invoke-RestMethod http://127.0.0.1:8080/api/adapter/diagnostics
 ```
 
-The adapter uses the same WMX3 pattern as the v4.5 GUI:
+The bridge uses the same WMX3 pattern as the v4.5 GUI and the validated
+manual smoke test:
 
 - `WMX_ROOT`: default `C:\Program Files\SoftServo\WMX3`
 - Python API path: `C:\Program Files\SoftServo\WMX3\Lib\PythonApi`
 - `WMX3Api()`
-- `CreateDevice(..., DeviceType.DeviceTypeLowPriority, INFINITE)`
+- `CreateDevice(..., DeviceType.DeviceTypeLowPriority, timeout)`
 - `Io(wmx)`
 - `SetOutBytes(0x00, 14, list(rxpdo_bytes))`
 - `GetInBytes(0x00, 48)`
 
-Manual WMX smoke test:
+Bridge-only smoke test on the WMX master PC:
 
 ```powershell
 cd C:\Users\user\Desktop\KD240\10_web_control
+python bridge\wmx_bridge_py36.py --smoke
+python bridge\wmx_bridge_py36.py --smoke --run --target 80 --kp 0.04 --ki 0.003
+```
+
+The existing smoke command is preserved as a wrapper:
+
+```powershell
 python tools\manual_wmx_smoke.py
 python tools\manual_wmx_smoke.py --run --target 80 --kp 0.04 --ki 0.003
 ```
@@ -222,15 +245,57 @@ Before real KD240 EtherCAT testing, confirm:
 - EtherCAT slave is in OP state before sending RUN.
 - `SetOutBytes(0x00, 14)` and `GetInBytes(0x00, 48)` match the active ENI.
 
+Some `WMX3ApiPython` versions do not export `INFINITE`. The Python 3.6
+bridge does not require that symbol. It uses:
+
+```python
+getattr(WMX3ApiPython, "INFINITE", 0xFFFFFFFF)
+```
+
+The actual timeout value used for `CreateDevice` is reported in bridge
+diagnostics as `create_device_timeout`, and the Web backend exposes that
+under `/api/adapter/diagnostics`.
+
 Python version note:
 
-The current Web backend uses modern Python syntax and the Codex bundled
-runtime is newer than the Python 3.6 environment often used with WMX3.
-If `WMX3ApiPython` only works in Python 3.6 and this server cannot run
-there, keep this Web backend on a modern Python and split WMX3 access
-into a small Python 3.6 subprocess/bridge process. The bridge should own
-`WMX3ApiPython`, expose a narrow local IPC protocol, and use the same
-`pdo_codec` byte contract for RxPDO/TxPDO.
+WMX3 master PCs may use Python 3.6. Python 3.6 compatibility is limited
+to the bridge path:
+
+- `bridge/wmx_bridge_py36.py`
+- `tools/manual_wmx_smoke.py`
+- `backend/pdo_codec.py`
+
+The Web backend remains Python 3.10+ and may use modern typing/runtime
+features. Do not run `backend/server.py` with the WMX Python 3.6 runtime.
+
+The bridge path avoids Python 3.7+ `from __future__ import annotations`,
+Python 3.9+ collection generics, Python 3.10 `|` union types, and
+`dataclasses`. No `dataclasses` backport is required for the WMX bridge
+smoke test.
+
+Run on the WMX master PC:
+
+```powershell
+python --version
+python bridge\wmx_bridge_py36.py --smoke
+python bridge\wmx_bridge_py36.py --smoke --run --target 80 --kp 0.04 --ki 0.003
+```
+
+The Web backend starts the bridge with:
+
+```text
+<KD240_WMX_PY36> -u bridge\wmx_bridge_py36.py --stdio
+```
+
+The IPC contract is newline-delimited JSON. The backend sends one command
+per line, for example:
+
+```json
+{"id":1,"command":"run","payload":{"target_temp":80.0,"kp":0.04,"ki":0.003}}
+```
+
+The bridge returns one JSON response per line with `ok`, optional
+`status`, and `diagnostics`.
 
 ## UI Layout
 
@@ -253,11 +318,17 @@ behind `IHeaterBackendAdapter`.
 Current:
 
 - `MockAdapter`: implemented
+- `EthercatBridgeAdapter`: implemented; starts the Python 3.6 WMX bridge subprocess
+- `WmxEthercatAdapter`: compatibility wrapper that routes to `EthercatBridgeAdapter`
 
 Future placeholders:
 
-- `WmxEthercatAdapter`: not implemented in this phase
 - `Kd240SharedMemoryAdapter`: not implemented in this phase
+
+For the later KD240 A53 Linux deployment, keep using the Web backend,
+frontend, REST/WebSocket contracts, DTOs, and `pdo_codec`. Replace
+`EthercatBridgeAdapter` with `Kd240SharedMemoryAdapter` once the A53
+shared-memory contract is implemented.
 
 The future `autotune.apply` implementation must not blindly forward
 `0x0010` to KD240 shared memory because that bit is `APPLY_TUNED_GAIN`
