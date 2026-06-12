@@ -14,13 +14,7 @@ import time
 import traceback
 from pathlib import Path
 
-
-PROJECT_DIR = Path(__file__).resolve().parents[1]
-BACKEND_DIR = PROJECT_DIR / "backend"
-if str(BACKEND_DIR) not in sys.path:
-    sys.path.insert(0, str(BACKEND_DIR))
-
-from pdo_codec import (  # noqa: E402
+from pdo_codec_py36 import (
     PDO_INPUT_ADDR,
     PDO_OUTPUT_ADDR,
     RX_PDO_SIZE,

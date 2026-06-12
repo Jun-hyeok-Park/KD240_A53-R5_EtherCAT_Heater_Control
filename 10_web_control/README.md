@@ -36,6 +36,7 @@ implementation.
       wmx_ethercat_adapter.py
       kd240_shared_memory_adapter.py
   bridge/
+    pdo_codec_py36.py
     wmx_bridge_py36.py
   docs/
     web_control_architecture.md
@@ -57,11 +58,11 @@ implementation.
 
 ## Run
 
-Run the Web backend with Python 3.10+:
+Run the Web backend with Python 3.13 on the WMX master PC:
 
 ```powershell
 cd C:\Users\user\Desktop\KD240\10_web_control
-python backend\server.py
+py -3.13 backend\server.py
 ```
 
 Then open:
@@ -85,7 +86,7 @@ Optional port override:
 
 ```powershell
 $env:KD240_WEB_PORT="8081"
-python backend\server.py
+py -3.13 backend\server.py
 ```
 
 ## Browser Check
@@ -163,7 +164,7 @@ The PDO codec is tested against the legacy v4.5 GUI byte layout:
 Run from `10_web_control`:
 
 ```powershell
-python -m unittest discover -s tests
+py -3.13 -m unittest discover -s tests
 ```
 
 With the bundled Codex Python runtime:
@@ -176,7 +177,8 @@ C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\py
 
 EtherCAT access is split into two processes:
 
-- Web backend, Python 3.10+: REST, WebSocket, Web UI, `EthercatBridgeAdapter`
+- Web backend, Python 3.13 on the WMX master PC: REST, WebSocket, Web UI, `EthercatBridgeAdapter`
+- Web backend, Python 3.10+ on KD240 A53 Linux: shared-memory adapter path
 - WMX bridge, Python 3.6: `WMX3ApiPython`, `SetOutBytes`, `GetInBytes`
 
 Mock mode remains the safe default and does not start the bridge.
@@ -186,8 +188,8 @@ Start the Web backend directly in EtherCAT bridge mode:
 ```powershell
 cd C:\Users\user\Desktop\KD240\10_web_control
 $env:KD240_BACKEND_MODE="ethercat_bridge"
-$env:KD240_WMX_PY36="C:\Path\To\WMX3\Python36\python.exe"
-python backend\server.py
+$env:KD240_WMX_PY36="C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe"
+py -3.13 backend\server.py
 ```
 
 `KD240_WMX_PY36` must point to the Python 3.6 executable that can import
@@ -224,15 +226,15 @@ Bridge-only smoke test on the WMX master PC:
 
 ```powershell
 cd C:\Users\user\Desktop\KD240\10_web_control
-python bridge\wmx_bridge_py36.py --smoke
-python bridge\wmx_bridge_py36.py --smoke --run --target 80 --kp 0.04 --ki 0.003
+C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe bridge\wmx_bridge_py36.py --smoke
+C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe bridge\wmx_bridge_py36.py --smoke --run --target 80 --kp 0.04 --ki 0.003
 ```
 
 The existing smoke command is preserved as a wrapper:
 
 ```powershell
-python tools\manual_wmx_smoke.py
-python tools\manual_wmx_smoke.py --run --target 80 --kp 0.04 --ki 0.003
+C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe tools\manual_wmx_smoke.py
+C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe tools\manual_wmx_smoke.py --run --target 80 --kp 0.04 --ki 0.003
 ```
 
 Before real KD240 EtherCAT testing, confirm:
@@ -262,11 +264,12 @@ WMX3 master PCs may use Python 3.6. Python 3.6 compatibility is limited
 to the bridge path:
 
 - `bridge/wmx_bridge_py36.py`
+- `bridge/pdo_codec_py36.py`
 - `tools/manual_wmx_smoke.py`
-- `backend/pdo_codec.py`
 
-The Web backend remains Python 3.10+ and may use modern typing/runtime
-features. Do not run `backend/server.py` with the WMX Python 3.6 runtime.
+The Web backend remains Python 3.13 on the WMX master PC and Python 3.10+
+on KD240 A53 Linux. It may use modern typing/runtime features. Do not run
+`backend/server.py` with the WMX Python 3.6 runtime.
 
 The bridge path avoids Python 3.7+ `from __future__ import annotations`,
 Python 3.9+ collection generics, Python 3.10 `|` union types, and
@@ -276,9 +279,9 @@ smoke test.
 Run on the WMX master PC:
 
 ```powershell
-python --version
-python bridge\wmx_bridge_py36.py --smoke
-python bridge\wmx_bridge_py36.py --smoke --run --target 80 --kp 0.04 --ki 0.003
+py -0p
+C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe bridge\wmx_bridge_py36.py --smoke
+C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe bridge\wmx_bridge_py36.py --smoke --run --target 80 --kp 0.04 --ki 0.003
 ```
 
 The Web backend starts the bridge with:
@@ -296,6 +299,21 @@ per line, for example:
 
 The bridge returns one JSON response per line with `ok`, optional
 `status`, and `diagnostics`.
+
+Full WMX master PC check sequence:
+
+```powershell
+cd C:\Users\user\Desktop\KD240\10_web_control
+py -0p
+C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe bridge\wmx_bridge_py36.py --smoke
+C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe bridge\wmx_bridge_py36.py --smoke --run --target 80 --kp 0.04 --ki 0.003
+$env:KD240_BACKEND_MODE="ethercat_bridge"
+$env:KD240_WMX_PY36="C:\Users\abc\AppData\Local\Programs\Python\Python36\python.exe"
+py -3.13 backend\server.py
+```
+
+In the Web UI, confirm the adapter badge and `/api/mode` report
+`ethercat_bridge`.
 
 ## UI Layout
 

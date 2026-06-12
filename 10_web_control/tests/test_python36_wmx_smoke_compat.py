@@ -8,8 +8,8 @@ class TestPython36WmxSmokeCompat(unittest.TestCase):
         root = Path(__file__).resolve().parents[1]
         files = [
             root / "bridge" / "wmx_bridge_py36.py",
+            root / "bridge" / "pdo_codec_py36.py",
             root / "tools" / "manual_wmx_smoke.py",
-            root / "backend" / "pdo_codec.py",
         ]
 
         for path in files:
